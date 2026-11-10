@@ -6,8 +6,8 @@
 
 ## Team
 
-- Team: K5-L3A-DAY03 — Nguyễn Văn Nhì (`2A202603697`)
-- Members: Nguyễn Văn Nhì
+- Team: K5-L3A-DAY03 — Nguyễn Văn Nhi (`2A202603697`)
+- Members: Nguyễn Văn Nhi
 - Provider/model: `deepseek` / `deepseek-flash` (DeepSeek-V4.1-Flash)
 
 ---

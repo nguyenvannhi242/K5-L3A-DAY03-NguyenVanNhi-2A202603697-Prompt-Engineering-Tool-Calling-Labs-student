@@ -1,197 +1,219 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Day 03 Lab v2 — Research Agent Poster</title>
-  <style>
-    :root {
-      --bg: #0f172a;
-      --card: #1e293b;
-      --border: #334155;
-      --accent: #38bdf8;
-      --accent2: #a855f7;
-      --success: #22c55e;
-      --text: #f8fafc;
-      --muted: #94a3b8;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background: radial-gradient(circle at top right, #1e1b4b, var(--bg));
-      color: var(--text);
-      padding: 28px;
-      line-height: 1.5;
-    }
-    .poster {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      gap: 20px;
-    }
-    header {
-      background: linear-gradient(135deg, rgba(56,189,248,0.15), rgba(168,85,247,0.15));
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px 28px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-    h1 { font-size: 1.9rem; color: var(--accent); }
-    .subtitle { color: var(--muted); font-size: 0.98rem; margin-top: 4px; }
-    .badges { display: flex; gap: 12px; flex-wrap: wrap; }
-    .badge {
-      background: var(--card);
-      border: 1px solid var(--border);
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-size: 0.88rem;
-      font-weight: 600;
-    }
-    .badge.green { border-color: var(--success); color: #86efac; }
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1.35fr 1fr;
-      gap: 20px;
-    }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 20px 24px;
-    }
-    h2 {
-      font-size: 1.2rem;
-      color: var(--accent);
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.88rem;
-    }
-    th, td {
-      text-align: left;
-      padding: 8px 10px;
-      border-bottom: 1px solid var(--border);
-    }
-    th { color: var(--muted); font-weight: 600; }
-    code {
-      background: rgba(15,23,42,0.7);
-      color: #7dd3fc;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-family: Consolas, monospace;
-    }
-    .tag-new {
-      background: rgba(168,85,247,0.25);
-      color: #e9d5ff;
-      border: 1px solid var(--accent2);
-      padding: 2px 8px;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-    .samples li {
-      margin-bottom: 10px;
-      padding: 10px 12px;
-      background: rgba(15,23,42,0.55);
-      border-left: 3px solid var(--accent);
-      border-radius: 6px;
-      list-style: none;
-      font-size: 0.9rem;
-    }
-    .metrics {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      margin-top: 12px;
-    }
-    .metric-box {
-      background: rgba(15,23,42,0.65);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 12px;
-      text-align: center;
-    }
-    .metric-val { font-size: 1.4rem; font-weight: 700; color: var(--success); }
-    .metric-lbl { font-size: 0.78rem; color: var(--muted); }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI &amp; Technology Research Agent — Day 03 Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f5f9;--surface:#fff;--ink:#0e1b2c;--muted:#5b6b80;--line:#dce2ec;
+  --accent:#2457f5;--accent-soft:#e6ecff;--new:#b45309;--new-soft:#fff1d6;--ok:#047857;--ok-soft:#dcf5ea;
+  --code:#eef1f7;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0b1220;--surface:#131c2f;--ink:#eaf0fa;--muted:#8fa0b8;--line:#243049;
+  --accent:#7aa2ff;--accent-soft:#1a2748;--new:#fbbf4d;--new-soft:#34270d;--ok:#4ade9a;--ok-soft:#0f2e22;--code:#0b1220}}
+:root[data-theme="dark"]{
+  --bg:#0b1220;--surface:#131c2f;--ink:#eaf0fa;--muted:#8fa0b8;--line:#243049;
+  --accent:#7aa2ff;--accent-soft:#1a2748;--new:#fbbf4d;--new-soft:#34270d;--ok:#4ade9a;--ok-soft:#0f2e22;--code:#0b1220}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:'Be Vietnam Pro',system-ui,sans-serif;line-height:1.6;padding:clamp(16px,4vw,48px)}
+.wrap{max-width:1120px;margin:0 auto;display:grid;gap:clamp(20px,3vw,32px)}
+h1,h2,.num{font-family:'Bricolage Grotesque','Be Vietnam Pro',system-ui,sans-serif}
+code{font-family:Consolas,'SF Mono',monospace;font-size:.86em;background:var(--code);padding:2px 6px;border-radius:5px}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(24px,4vw,56px);align-items:end;padding:clamp(8px,2vw,24px) 0}
+h1{font-size:clamp(2.2rem,5.4vw,4rem);line-height:1.04;font-weight:800;letter-spacing:-.025em}
+.sub{margin-top:18px;color:var(--muted);max-width:52ch}
+.who{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 12px;font-size:.84rem}
+.hero-stat{background:var(--ink);color:var(--bg);border-radius:20px;padding:clamp(20px,3vw,32px)}
+.hero-stat .num{font-size:clamp(2.6rem,6vw,4.4rem);font-weight:800;line-height:1;letter-spacing:-.03em}
+.hero-stat p{margin-top:10px;opacity:.75;font-size:.92rem}
+.hero-stat .bar{margin-top:20px;height:8px;border-radius:99px;background:rgba(127,127,127,.35);overflow:hidden;position:relative}
+.hero-stat .bar i{position:absolute;inset:0 auto 0 0;width:55%;background:#fbbf4d;border-radius:99px;animation:grow 1.4s .3s cubic-bezier(.2,.8,.2,1) forwards}
+.hero-stat .legend{display:flex;justify-content:space-between;font-size:.78rem;margin-top:6px;opacity:.7}
+@keyframes grow{to{width:100%;background:#4ade9a}}
+
+.evals{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.eval{background:var(--ok-soft);color:var(--ok);border-radius:14px;padding:14px 16px}
+.eval b{display:block;font-family:'Bricolage Grotesque',sans-serif;font-size:1.5rem;line-height:1.2}
+.eval span{font-size:.82rem;color:var(--ink);opacity:.8}
+
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:clamp(20px,3vw,32px)}
+h2{font-size:1.5rem;font-weight:700;letter-spacing:-.015em;margin-bottom:6px}
+.lead{color:var(--muted);max-width:72ch}
+.flow{margin-top:20px;display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.flow div{border:1px solid var(--line);border-radius:12px;padding:12px;font-size:.86rem}
+.flow strong{display:block;margin-bottom:2px;color:var(--accent)}
+.kpis{margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.kpi{background:var(--accent-soft);border-radius:14px;padding:14px 16px}
+.kpi b{font-family:'Bricolage Grotesque',sans-serif;font-size:1.6rem;display:block}
+.kpi span{font-size:.82rem;color:var(--muted)}
+
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.filter{border:1px solid var(--line);background:transparent;border-radius:999px;padding:6px 14px;font-size:.88rem;transition:background .15s,color .15s}
+.filter[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.tool{border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.tool[hidden]{display:none}
+.tool header{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.tool code{font-weight:600;color:var(--accent);font-size:.9rem}
+.tool p{font-size:.86rem;color:var(--muted)}
+.tag{font-size:.72rem;font-weight:600;border-radius:999px;padding:2px 9px;background:var(--code);color:var(--muted)}
+.tag.new{background:var(--new-soft);color:var(--new)}
+.tool.is-new{border-color:var(--new)}
+
+.two{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(20px,3vw,32px)}
+.asks{display:grid;gap:10px;margin-top:14px}
+.ask{text-align:left;width:100%;background:var(--code);border:1px solid transparent;border-radius:14px;padding:12px 14px;transition:border-color .15s}
+.ask:hover{border-color:var(--accent)}
+.ask small{display:block;color:var(--muted);font-size:.78rem;margin-bottom:2px}
+.ask q{font-size:.95rem;quotes:"“" "”"}
+.cmds{display:grid;gap:12px;margin-top:14px}
+.cmd{background:var(--code);border-radius:14px;padding:12px 14px;display:flex;justify-content:space-between;gap:10px;align-items:center}
+.cmd small{display:block;color:var(--muted);font-size:.78rem}
+.cmd code{background:none;padding:0;word-break:break-all}
+.copy{flex:none;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:4px 10px;font-size:.8rem}
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--ink);color:var(--bg);padding:8px 16px;border-radius:999px;font-size:.86rem;opacity:0;pointer-events:none;transition:.2s}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+.theme{position:absolute;top:calc(12px + env(safe-area-inset-top,0px));right:16px;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:4px 12px;font-size:.82rem}
+
+@media(max-width:860px){
+  .hero,.two{grid-template-columns:1fr}
+  .evals{grid-template-columns:1fr 1fr}
+  .flow{grid-template-columns:1fr 1fr}
+  .kpis{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){.hero-stat .bar i{animation:none;width:100%;background:#4ade9a}*{transition:none!important}}
+</style>
 </head>
 <body>
-  <div class="poster">
-    <header>
-      <div>
-        <h1>🔬 AI &amp; Technology Research Agent (v3)</h1>
-        <div class="subtitle">K5-L3A-DAY03 — Nguyễn Văn Nhì (2A202603697) &nbsp;|&nbsp; Provider: <code>deepseek</code> &nbsp;|&nbsp; Model: <code>deepseek-flash</code> (DeepSeek-V4.1-Flash)</div>
-      </div>
-      <div class="badges">
-        <span class="badge green">Base Eval: 20/20 (100%)</span>
-        <span class="badge green">Team Group Eval: 10/10 (100%)</span>
-        <span class="badge green">Extension Eval: 10/10 (100%)</span>
-        <span class="badge green">Pytest: 111 Passed / 0 Skipped</span>
-      </div>
-    </header>
+<button class="theme" id="themeBtn" aria-label="Đổi giao diện sáng/tối">Sáng / Tối</button>
+<main class="wrap">
 
-    <div class="card">
-      <h2>🎯 A1. Agent này làm được gì?</h2>
-      <p>Trợ lý nghiên cứu công nghệ đa nguồn dựa trên bằng chứng (evidence-driven): tự động định tuyến và tra cứu tin tức thời sự (Tavily), thảo luận mạng xã hội X/Twitter &amp; Hacker News, kho mã nguồn mở GitHub, bài báo khoa học arXiv, sổ tay quy định nội bộ công ty, kiểm định cấp độ tin cậy của nguồn tin (Tier 1/2/3), tổng hợp thành bản tin Markdown và lưu file hoặc đăng lên Telegram sau khi người dùng xác nhận.</p>
-      <div class="metrics">
-        <div class="metric-box"><div class="metric-val">0.55 → 1.00</div><div class="metric-lbl">Case Accuracy (v0 → v3)</div></div>
-        <div class="metric-box"><div class="metric-val">100%</div><div class="metric-lbl">Tool Routing Accuracy</div></div>
-        <div class="metric-box"><div class="metric-val">100%</div><div class="metric-lbl">Argument &amp; Multi-turn</div></div>
-        <div class="metric-box"><div class="metric-val">14 Tools</div><div class="metric-lbl">10 Built-in + 4 Custom</div></div>
+  <section class="hero">
+    <div>
+      <h1>Trợ lý nghiên cứu AI &amp; công nghệ</h1>
+      <p class="sub">Tra cứu đa nguồn dựa trên bằng chứng: tin tức, X/Twitter, Hacker News, GitHub và arXiv, kèm kiểm định độ tin cậy của từng nguồn.</p>
+      <div class="who">
+        <span class="chip">K5-L3A-DAY03</span>
+        <span class="chip">Nguyễn Văn Nhi · 2A202603697</span>
+        <span class="chip">Provider: <code>deepseek</code></span>
+        <span class="chip">Model: <code>deepseek-flash</code> (DeepSeek-V4.1-Flash)</span>
       </div>
     </div>
-
-    <div class="grid-2">
-      <div class="card">
-        <h2>🧰 A2. Danh sách 14 Công cụ (Tools)</h2>
-        <table>
-          <thead>
-            <tr><th>Tool</th><th>Chức năng chính</th><th>Loại</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><code>clarify</code></td><td>Hỏi lại khi thiếu handle/URL hoặc xin xác nhận <code>yes_no</code> trước khi gửi/lưu</td><td>Core</td></tr>
-            <tr><td><code>timeline</code></td><td>Lấy tweet gần đây của một tài khoản cụ thể (<code>sama</code>, <code>elonmusk</code>, <code>karpathy</code>)</td><td>Core</td></tr>
-            <tr><td><code>social_search</code></td><td>Tìm kiếm bài đăng X/Twitter theo từ khóa (<code>Latest</code> / <code>Top</code>)</td><td>Core</td></tr>
-            <tr><td><code>lookup</code></td><td>Tìm kiếm web &amp; tin tức thời sự qua Tavily (<code>topic=news|general</code>)</td><td>Core</td></tr>
-            <tr><td><code>fetch</code></td><td>Đọc và trích xuất Markdown từ một URL cụ thể qua Firecrawl</td><td>Core</td></tr>
-            <tr><td><code>format</code></td><td>Định dạng danh sách item thành bản tin Markdown theo template</td><td>Core</td></tr>
-            <tr><td><code>send</code></td><td>Đăng bản tin lên kênh Telegram (Guardrail: <code>confirmed=true</code>)</td><td>Bonus</td></tr>
-            <tr><td><code>policy</code></td><td>Tra cứu quy định nội bộ công ty &amp; tách biệt <code>untrusted_text</code></td><td>Bonus</td></tr>
-            <tr><td><code>papers</code></td><td>Tìm kiếm bài báo khoa học trên arXiv theo chủ đề</td><td>Bonus</td></tr>
-            <tr><td><code>paper_text</code></td><td>Tải PDF arXiv và trích xuất văn bản cục bộ</td><td>Bonus</td></tr>
-            <tr><td><code>github_search</code></td><td>Tìm kiếm repositories mã nguồn mở trên GitHub theo <code>stars</code>/<code>updated</code>/<code>forks</code></td><td><span class="tag-new">Mới #1</span></td></tr>
-            <tr><td><code>hn_search</code></td><td>Tìm kiếm thảo luận kỹ thuật trên Hacker News (<code>popularity</code> / <code>date</code>)</td><td><span class="tag-new">Mới #2</span></td></tr>
-            <tr><td><code>source_credibility</code></td><td>Phân loại cấp độ tin cậy nguồn tin (<code>Tier 1/2/3</code>) theo Citation Policy</td><td><span class="tag-new">Mới #3</span></td></tr>
-            <tr><td><code>save_report</code></td><td>Lưu báo cáo Markdown ra file cục bộ (Guardrail: <code>confirmed=true</code>)</td><td><span class="tag-new">Mới #4</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="card">
-        <h2>💬 A3. Câu hỏi mẫu để thử ngay</h2>
-        <ul class="samples">
-          <li><strong>1. Tin tức thời sự + Digest:</strong><br/>"Tin tức AI hôm nay có gì nổi bật?"</li>
-          <li><strong>2. Tìm repo GitHub (Tool mới):</strong><br/>"Tìm giúp mình 5 repo GitHub nhiều sao nhất về MCP"</li>
-          <li><strong>3. Thảo luận Hacker News (Tool mới):</strong><br/>"Cộng đồng Hacker News mới nhất đang thảo luận gì về DeepSeek?"</li>
-          <li><strong>4. Kiểm định độ tin cậy nguồn (Tool mới):</strong><br/>"Đánh giá độ tin cậy (Tier mấy theo policy) của nguồn này: https://x.com/sama/status/123456"</li>
-          <li><strong>5. Hỏi lại &amp; Xác nhận gửi Telegram:</strong><br/>"Tóm tắt 3 tweet mới nhất giúp mình" → "Của Sam Altman nhé" → "Đăng bản tin vừa rồi lên Telegram giúp mình"</li>
-        </ul>
-        <h2 style="margin-top: 18px;">🚀 Khởi chạy Demo UI</h2>
-        <p style="font-size: 0.88rem; color: var(--muted);">
-          Local Streamlit UI: <code>streamlit run app.py</code> (cổng <code>8501</code>)<br/>
-          Public Tunnel: <code>cloudflared tunnel --url http://localhost:8501</code>
-        </p>
-      </div>
+    <div class="hero-stat" aria-label="Độ chính xác tăng từ 0.55 lên 1.00">
+      <div class="num">0.55 → 1.00</div>
+      <p>Độ chính xác theo từng case, từ phiên bản v0 đến v3</p>
+      <div class="bar"><i></i></div>
+      <div class="legend"><span>v0</span><span>v3</span></div>
     </div>
-  </div>
+  </section>
+
+  <section class="evals" aria-label="Kết quả đánh giá">
+    <div class="eval"><b>20/20</b><span>Base Eval · 100%</span></div>
+    <div class="eval"><b>10/10</b><span>Team Group Eval · 100%</span></div>
+    <div class="eval"><b>10/10</b><span>Extension Eval · 100%</span></div>
+    <div class="eval"><b>111</b><span>Pytest: 111 passed, 0 skipped</span></div>
+  </section>
+
+  <section class="panel">
+    <h2>Agent này làm được gì?</h2>
+    <p class="lead">Tự động chọn nguồn phù hợp, tổng hợp thành bản tin Markdown, rồi lưu file hoặc đăng lên Telegram sau khi bạn xác nhận.</p>
+    <div class="flow">
+      <div><strong>Định tuyến</strong>Chọn đúng công cụ cho câu hỏi</div>
+      <div><strong>Tra cứu</strong>Tavily, X, Hacker News, GitHub, arXiv, quy định nội bộ</div>
+      <div><strong>Kiểm định</strong>Xếp nguồn Tier 1, 2 hoặc 3</div>
+      <div><strong>Tổng hợp</strong>Bản tin Markdown theo template</div>
+      <div><strong>Xác nhận</strong>Lưu file hoặc đăng Telegram</div>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><b>100%</b><span>Tool Routing Accuracy</span></div>
+      <div class="kpi"><b>100%</b><span>Argument &amp; Multi-turn</span></div>
+      <div class="kpi"><b>14 công cụ</b><span>10 có sẵn + 4 tự xây</span></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>14 công cụ</h2>
+    <p class="lead">Lọc theo nhóm để xem công cụ nào có sẵn và công cụ nào là phần mở rộng.</p>
+    <div class="toolbar" id="filters" role="group" aria-label="Lọc công cụ"></div>
+    <div class="tools" id="tools"></div>
+  </section>
+
+  <section class="two">
+    <div class="panel">
+      <h2>Câu hỏi mẫu</h2>
+      <p class="lead">Chọn một câu để sao chép, rồi dán vào ô chat.</p>
+      <div class="asks" id="asks"></div>
+    </div>
+    <div class="panel">
+      <h2>Chạy demo</h2>
+      <p class="lead">Mở giao diện Streamlit ở cổng <code>8501</code>.</p>
+      <div class="cmds" id="cmds"></div>
+    </div>
+  </section>
+</main>
+<div id="toast" role="status" aria-live="polite">Đã sao chép</div>
+
+<script>
+const tools=[
+["clarify","Hỏi lại khi thiếu handle hoặc URL, hoặc xin xác nhận yes_no trước khi gửi hoặc lưu","Core"],
+["timeline","Lấy tweet gần đây của một tài khoản (sama, elonmusk, karpathy)","Core"],
+["social_search","Tìm bài đăng X/Twitter theo từ khóa (Latest hoặc Top)","Core"],
+["lookup","Tìm web và tin tức thời sự qua Tavily (topic=news hoặc general)","Core"],
+["fetch","Đọc một URL và trích xuất Markdown qua Firecrawl","Core"],
+["format","Định dạng danh sách item thành bản tin Markdown theo template","Core"],
+["send","Đăng bản tin lên Telegram. Bảo vệ: cần confirmed=true","Bonus"],
+["policy","Tra cứu quy định nội bộ và tách riêng untrusted_text","Bonus"],
+["papers","Tìm bài báo khoa học trên arXiv theo chủ đề","Bonus"],
+["paper_text","Tải PDF arXiv và trích xuất văn bản cục bộ","Bonus"],
+["github_search","Tìm repo mã nguồn mở trên GitHub theo stars, updated hoặc forks","Mới"],
+["hn_search","Tìm thảo luận kỹ thuật trên Hacker News (popularity hoặc date)","Mới"],
+["source_credibility","Phân loại độ tin cậy nguồn (Tier 1, 2, 3) theo Citation Policy","Mới"],
+["save_report","Lưu báo cáo Markdown ra file. Bảo vệ: cần confirmed=true","Mới"]];
+const asks=[
+["Tin tức thời sự và digest","Tin tức AI hôm nay có gì nổi bật?"],
+["Tìm repo GitHub (công cụ mới)","Tìm giúp mình 5 repo GitHub nhiều sao nhất về MCP"],
+["Thảo luận Hacker News (công cụ mới)","Cộng đồng Hacker News mới nhất đang thảo luận gì về DeepSeek?"],
+["Kiểm định độ tin cậy (công cụ mới)","Đánh giá độ tin cậy (Tier mấy theo policy) của nguồn này: https://x.com/sama/status/123456"],
+["Hỏi lại và xác nhận đăng Telegram","Tóm tắt 3 tweet mới nhất giúp mình → Của Sam Altman nhé → Đăng bản tin vừa rồi lên Telegram giúp mình"]];
+const cmds=[["Giao diện cục bộ","streamlit run app.py"],["Public tunnel","cloudflared tunnel --url http://localhost:8501"]];
+
+const toast=document.getElementById('toast');let tt;
+function copy(text){
+  const done=()=>{toast.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove('on'),1400)};
+  try{navigator.clipboard.writeText(text).then(done,done)}catch(e){done()}
+}
+const esc=s=>s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+
+const groups=["Tất cả","Core","Bonus","Mới"];
+const fEl=document.getElementById('filters'),tEl=document.getElementById('tools');
+tEl.innerHTML=tools.map(t=>`<article class="tool${t[2]==='Mới'?' is-new':''}" data-g="${t[2]}"><header><code>${t[0]}</code><span class="tag${t[2]==='Mới'?' new':''}">${t[2]==='Mới'?'Mới':t[2]}</span></header><p>${esc(t[1])}</p></article>`).join('');
+fEl.innerHTML=groups.map((g,i)=>{const n=g==='Tất cả'?tools.length:tools.filter(t=>t[2]===g).length;return `<button class="filter" data-g="${g}" aria-pressed="${i===0}">${g} (${n})</button>`}).join('');
+fEl.addEventListener('click',e=>{
+  const b=e.target.closest('.filter');if(!b)return;
+  fEl.querySelectorAll('.filter').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  tEl.querySelectorAll('.tool').forEach(c=>c.hidden=!(b.dataset.g==='Tất cả'||c.dataset.g===b.dataset.g));
+});
+
+document.getElementById('asks').innerHTML=asks.map((a,i)=>`<button class="ask" data-i="${i}"><small>${a[0]}</small><q>${esc(a[1])}</q></button>`).join('');
+document.getElementById('asks').addEventListener('click',e=>{const b=e.target.closest('.ask');if(b)copy(asks[b.dataset.i][1])});
+document.getElementById('cmds').innerHTML=cmds.map((c,i)=>`<div class="cmd"><div><small>${c[0]}</small><code>${c[1]}</code></div><button class="copy" data-i="${i}">Sao chép</button></div>`).join('');
+document.getElementById('cmds').addEventListener('click',e=>{const b=e.target.closest('.copy');if(b)copy(cmds[b.dataset.i][1])});
+
+document.getElementById('themeBtn').addEventListener('click',()=>{
+  const r=document.documentElement,dark=matchMedia('(prefers-color-scheme: dark)').matches;
+  const cur=r.dataset.theme||(dark?'dark':'light');
+  r.dataset.theme=cur==='dark'?'light':'dark';
+});
+</script>
 </body>
 </html>
