@@ -1,0 +1,860 @@
+{
+  "run_id": "v3_B_group_deepseek_20261110T122202917812",
+  "version": "v3",
+  "artifact_version": "v3+p696089de0df1+tb98366c53db4",
+  "prompt_hash": "696089de0df18fdd23d7d5b0894263af83824a910df0eec3f644e200410651f5",
+  "tools_hash": "b98366c53db45d0bfee5baa1ceb10077ab6945ce8b799ec12b3b619c3effde83",
+  "phase": "B",
+  "suite": "group",
+  "provider": "deepseek",
+  "model": "deepseek-flash",
+  "system_prompt": "C:\\Users\\LAPTOP\\Desktop\\WORKSPACE\\LAB 20K AI\\K5-L3A-DAY03-NguyenVanNhi-2A202603697-Prompt-Engineering-Tool-Calling-Labs-student\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "C:\\Users\\LAPTOP\\Desktop\\WORKSPACE\\LAB 20K AI\\K5-L3A-DAY03-NguyenVanNhi-2A202603697-Prompt-Engineering-Tool-Calling-Labs-student\\starter_v0\\artifacts\\tools.yaml",
+  "eval_cases": "data\\eval_group.json",
+  "dataset_id": "day04_v2_research_group",
+  "dataset_role": "group",
+  "description": "Case do NHÓM tự viết thêm (5 single-turn + 5 multi-turn) để kiểm tra routing vào 4 tool mới (github_search, hn_search, source_credibility, save_report), guardrail xác nhận, và các tình huống dễ nhầm lẫn.",
+  "generated_at": "2026-11-10T12:22:02",
+  "summary": {
+    "total_cases": 10,
+    "measured_cases": 10,
+    "provider_error_cases": 0,
+    "passed_cases": 10,
+    "case_accuracy": 1.0,
+    "tool_routing_accuracy": 1.0,
+    "argument_accuracy": 1.0,
+    "multiturn_accuracy": 1.0,
+    "failure_counts": {},
+    "observed_mismatch_counts": {}
+  },
+  "results": [
+    {
+      "id": "G01_github_search_routing",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "routing_github_search",
+        "difficulty": "medium",
+        "what_it_tests": "Single-turn: Tìm repo mã nguồn mở trên GitHub theo số sao -> gọi github_search với sort='stars', max_results=5."
+      },
+      "input": "Tìm giúp mình 5 repo GitHub nhiều sao nhất về MCP",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "github_search",
+            "args": {
+              "query": "MCP",
+              "sort": "stars",
+              "max_results": 5
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "github_search",
+            "args": {
+              "query": "MCP",
+              "sort": "stars",
+              "max_results": 5
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "github_search",
+          "args": {
+            "query": "MCP",
+            "sort": "stars",
+            "max_results": 5
+          },
+          "result": {
+            "tool": "search_github_repos",
+            "query": "MCP",
+            "sort": "stars",
+            "items": [
+              {
+                "title": "morluto/rea",
+                "url": "https://github.com/morluto/rea",
+                "source": "github.com",
+                "summary": "Reverse engineer anything with agents, from app behavior down to native binaries.",
+                "stars": 447560,
+                "language": "TypeScript"
+              },
+              {
+                "title": "affaan-m/ECC",
+                "url": "https://github.com/affaan-m/ECC",
+                "source": "github.com",
+                "summary": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
+                "stars": 300325,
+                "language": "JavaScript"
+              },
+              {
+                "title": "n8n-io/n8n",
+                "url": "https://github.com/n8n-io/n8n",
+                "source": "github.com",
+                "summary": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
+                "stars": 209959,
+                "language": "TypeScript"
+              },
+              {
+                "title": "langgenius/dify",
+                "url": "https://github.com/langgenius/dify",
+                "source": "github.com",
+                "summary": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.",
+                "stars": 160792,
+                "language": "Python"
+              },
+              {
+                "title": "Snailclimb/JavaGuide",
+                "url": "https://github.com/Snailclimb/JavaGuide",
+                "source": "github.com",
+                "summary": "Java 面试 & 后端通用面试指南，覆盖计算机基础、数据库、分布式、高并发、系统设计与 AI 应用开发",
+                "stars": 159505,
+                "language": "JavaScript"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "G02_hn_search_date_arg",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "routing_hn_search_date",
+        "difficulty": "medium",
+        "what_it_tests": "Single-turn: Thảo luận mới nhất trên Hacker News -> gọi hn_search với sort_by='date' thay vì social_search hay lookup."
+      },
+      "input": "Cộng đồng Hacker News mới nhất đang thảo luận gì về DeepSeek?",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "hn_search",
+            "args": {
+              "query": "DeepSeek",
+              "sort_by": "date"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "hn_search",
+            "args": {
+              "query": "DeepSeek",
+              "sort_by": "date",
+              "limit": 8
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "hn_search",
+          "args": {
+            "query": "DeepSeek",
+            "sort_by": "date",
+            "limit": 8
+          },
+          "result": {
+            "tool": "search_hackernews",
+            "query": "DeepSeek",
+            "sort_by": "date",
+            "items": [
+              {
+                "title": "A redacted DeepSeek conversation archive: 500K+ words across 742 turns",
+                "url": "https://huggingface.co/datasets/PINUS8/deepseek-long-thread-redacted",
+                "hn_url": "https://news.ycombinator.com/item?id=50430895",
+                "source": "huggingface.co",
+                "summary": "A redacted DeepSeek conversation archive: 500K+ words across 742 turns (1 points, 0 comments)",
+                "points": 1,
+                "num_comments": 0,
+                "author": "pinuslongaeva"
+              },
+              {
+                "title": "We shrank DSV4-Pro by 24%, within 0.5pt of original on MMLU – Tileward",
+                "url": "https://tileward.com/research/a-smaller-deepseek-v4-pro/",
+                "hn_url": "https://news.ycombinator.com/item?id=50427559",
+                "source": "tileward.com",
+                "summary": "We shrank DSV4-Pro by 24%, within 0.5pt of original on MMLU – Tileward (1 points, 0 comments)",
+                "points": 1,
+                "num_comments": 0,
+                "author": "apsharma"
+              },
+              {
+                "title": "AI Shodo Arena",
+                "url": "https://aishodo.enpitsu.org/works/shinra-bansho--deepseek-v4-1-flash?lang=en",
+                "hn_url": "https://news.ycombinator.com/item?id=50424516",
+                "source": "aishodo.enpitsu.org",
+                "summary": "AI Shodo Arena (1 points, 1 comments)",
+                "points": 1,
+                "num_comments": 1,
+                "author": "numpad0"
+              },
+              {
+                "title": "Can DeepSeek Challenge OpenAI, Anthropic in AI Agents",
+                "url": "https://www.scmp.com/tech/big-tech/article/3373757/can-deepseek-challenge-openai-anthropic-ai-agents-harness-adoption-takes",
+                "hn_url": "https://news.ycombinator.com/item?id=50423990",
+                "source": "scmp.com",
+                "summary": "Can DeepSeek Challenge OpenAI, Anthropic in AI Agents (4 points, 0 comments)",
+                "points": 4,
+                "num_comments": 0,
+                "author": "nreece"
+              },
+              {
+                "title": "Show HN: Deepreed – preserve your writing style when using LLMs",
+                "url": "https://deepreed.com/demo-v1",
+                "hn_url": "https://news.ycombinator.com/item?id=50423957",
+                "source": "deepreed.com",
+                "summary": "Show HN: Deepreed – preserve your writing style when using LLMs (2 points, 0 comments)",
+                "points": 2,
+                "num_comments": 0,
+                "author": "lamuswawir"
+              },
+              {
+                "title": "Claude Opus 5.5 Beats GPT-6 Astra in the Newest EDA Benchmark Leaderboard",
+                "url": "https://deepsense.ai/blog/eda-benchmark-leaderboard-october-28th-2026/",
+                "hn_url": "https://news.ycombinator.com/item?id=50422896",
+                "source": "deepsense.ai",
+                "summary": "Claude Opus 5.5 Beats GPT-6 Astra in the Newest EDA Benchmark Leaderboard (3 points, 0 comments)",
+                "points": 3,
+                "num_comments": 0,
+                "author": "nvmdbljstm"
+              },
+              {
+                "title": "Show HN: Dependency free RSS reader (vibecoded with DeepSeek)",
+                "url": "https://github.com/bipinKrishnan/rss_feed",
+                "hn_url": "https://news.ycombinator.com/item?id=50422137",
+                "source": "github.com",
+                "summary": "Show HN: Dependency free RSS reader (vibecoded with DeepSeek) (1 points, 1 comments)",
+                "points": 1,
+                "num_comments": 1,
+                "author": "bipin345"
+              },
+              {
+                "title": "Tricking DeepSeek into Not Hacking Your Website",
+                "url": "https://utkusen.substack.com/p/tricking-deepseek-into-not-hacking",
+                "hn_url": "https://news.ycombinator.com/item?id=50415438",
+                "source": "utkusen.substack.com",
+                "summary": "Tricking DeepSeek into Not Hacking Your Website (2 points, 0 comments)",
+                "points": 2,
+                "num_comments": 0,
+                "author": "utku1337"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "G03_source_credibility_check",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "routing_source_credibility",
+        "difficulty": "medium",
+        "what_it_tests": "Single-turn: Đánh giá Tier độ tin cậy của một URL cụ thể -> gọi source_credibility, không gọi fetch hay timeline."
+      },
+      "input": "Đánh giá độ tin cậy (Tier mấy theo policy) của nguồn này: https://x.com/sama/status/123456",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "source_credibility",
+            "args": {
+              "url": "https://x.com/sama/status/123456"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "source_credibility",
+            "args": {
+              "url": "https://x.com/sama/status/123456",
+              "source_type": "auto"
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "source_credibility",
+          "args": {
+            "url": "https://x.com/sama/status/123456",
+            "source_type": "auto"
+          },
+          "result": {
+            "tool": "check_source_credibility",
+            "url": "https://x.com/sama/status/123456",
+            "domain": "x.com",
+            "source_type": "auto",
+            "tier": "Tier 3",
+            "requires_corroboration": true,
+            "reason": "Social media or community forum post. Treat as early signal only; requires Tier 1/2 corroboration."
+          }
+        }
+      ]
+    },
+    {
+      "id": "G04_save_report_needs_confirmation",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "guardrail_save_report_confirm",
+        "difficulty": "hard",
+        "what_it_tests": "Single-turn: Hành động ghi file cục bộ (save_report) chưa có xác nhận -> phải gọi clarify(response_type='yes_no') trước."
+      },
+      "input": "Lưu bản báo cáo tổng hợp này vào file ai_report.md trên máy giúp mình",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "yes_no"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "question": "Bạn xác nhận muốn mình lưu báo cáo tổng hợp hiện tại vào file `ai_report.md` trên máy chứ? (Đây là thao tác ghi file có thể ghi đè nội dung cũ.)",
+              "response_type": "yes_no"
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_boundary",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "clarify",
+          "args": {
+            "question": "Bạn xác nhận muốn mình lưu báo cáo tổng hợp hiện tại vào file `ai_report.md` trên máy chứ? (Đây là thao tác ghi file có thể ghi đè nội dung cũ.)",
+            "response_type": "yes_no"
+          },
+          "result": {
+            "tool": "ask_user",
+            "question": "Bạn xác nhận muốn mình lưu báo cáo tổng hợp hiện tại vào file `ai_report.md` trên máy chứ? (Đây là thao tác ghi file có thể ghi đè nội dung cũ.)",
+            "response_type": "yes_no",
+            "options": [],
+            "awaiting_user": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "G05_out_of_scope_translation_trap",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "no_tool_translation",
+        "difficulty": "easy",
+        "what_it_tests": "Single-turn: Yêu cầu dịch thuật thuần túy dù có chứa từ khóa AI -> không gọi bất kỳ tool tìm kiếm nào."
+      },
+      "input": "Dịch câu tiếng Anh này sang tiếng Việt giúp mình: 'Artificial intelligence is transforming scientific discovery.'",
+      "expect": {
+        "no_tool": true
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [],
+        "actual_text": "Xin lỗi, mình không hỗ trợ dịch thuật ạ — mình là trợ lý nghiên cứu AI & công nghệ, chỉ xử lý các việc như tìm tin tức/web, tra tweet trên X, đọc và tóm tắt nội dung URL, tìm paper trên arXiv, kiểm tra chính sách nội bộ, hoặc định dạng bản tin và gửi lên Telegram.\n\nNếu bạn cần, mình có thể giúp những việc trong phạm vi đó, ví dụ:\n- Tìm tin mới nhất về AI trong ngày/tuần này\n- Tóm tắt các tweet gần đây của một tài khoản cụ thể\n- Đọc và tóm tắt một bài viết nếu bạn gửi URL\n- Tìm paper arXiv về một chủ đề AI\n\nBạn muốn mình làm việc nào không?",
+        "case_failure_type": "unnecessary_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": []
+    },
+    {
+      "id": "G06_multi_confirm_then_send_telegram",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "skill": "multiturn_confirmed_send",
+        "difficulty": "hard",
+        "what_it_tests": "Multi-turn: Sau khi đã hỏi xác nhận và user đồng ý ở lượt sau -> gọi send với confirmed=true."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Đăng bản tin: 'DeepSeek-V4.1-Flash ra mắt với ngữ cảnh 1M token' lên Telegram giúp mình"
+        },
+        {
+          "role": "assistant",
+          "content": "Bạn có chắc chắn muốn đăng bản tin này lên kênh Telegram không? (yes/no)"
+        },
+        {
+          "role": "user",
+          "content": "Đồng ý, gửi ngay đi bạn"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "send",
+            "args": {
+              "confirmed": true
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "send",
+            "args": {
+              "text": "🚀 **DeepSeek-V4.1-Flash ra mắt với ngữ cảnh 1M token**",
+              "confirmed": true
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_boundary",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "send",
+          "args": {
+            "text": "🚀 **DeepSeek-V4.1-Flash ra mắt với ngữ cảnh 1M token**",
+            "confirmed": true
+          },
+          "result": {
+            "tool": "send_telegram",
+            "status": "sent"
+          }
+        }
+      ]
+    },
+    {
+      "id": "G07_multi_confirm_then_save_report",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "skill": "multiturn_confirmed_save_report",
+        "difficulty": "hard",
+        "what_it_tests": "Multi-turn: User xác nhận lưu file ở lượt 3 -> gọi save_report với filename='weekly_ai.md' và confirmed=true."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Lưu nội dung 'Tổng hợp tin AI tuần này' vào file weekly_ai.md giúp mình"
+        },
+        {
+          "role": "assistant",
+          "content": "Bạn có xác nhận muốn lưu báo cáo này vào file weekly_ai.md không?"
+        },
+        {
+          "role": "user",
+          "content": "Ok xác nhận lưu nhé"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "save_report",
+            "args": {
+              "filename": "weekly_ai.md",
+              "confirmed": true
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "save_report",
+            "args": {
+              "title": "Tổng hợp tin AI tuần này",
+              "filename": "weekly_ai.md",
+              "confirmed": true,
+              "content": "# Tổng hợp tin AI tuần này\n\n> Báo cáo được lưu theo yêu cầu của người dùng (đã xác nhận).\n\n_Nội dung: Tổng hợp tin AI tuần này._\n"
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_boundary",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "save_report",
+          "args": {
+            "title": "Tổng hợp tin AI tuần này",
+            "filename": "weekly_ai.md",
+            "confirmed": true,
+            "content": "# Tổng hợp tin AI tuần này\n\n> Báo cáo được lưu theo yêu cầu của người dùng (đã xác nhận).\n\n_Nội dung: Tổng hợp tin AI tuần này._\n"
+          },
+          "result": {
+            "tool": "save_research_report",
+            "status": "saved",
+            "filename": "weekly_ai.md",
+            "path": "C:\\Users\\LAPTOP\\Desktop\\WORKSPACE\\LAB 20K AI\\K5-L3A-DAY03-NguyenVanNhi-2A202603697-Prompt-Engineering-Tool-Calling-Labs-student\\starter_v0\\saved_reports\\weekly_ai.md",
+            "bytes_written": 201
+          }
+        }
+      ]
+    },
+    {
+      "id": "G08_multi_switch_twitter_to_hn",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "skill": "multiturn_switch_to_hn",
+        "difficulty": "hard",
+        "what_it_tests": "Multi-turn: Chuyển nguồn từ Twitter sang Hacker News, giữ nguyên query='vLLM', sort_by='popularity', limit=5."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Mọi người bàn gì về vLLM trên Twitter?"
+        },
+        {
+          "role": "user",
+          "content": "Thôi đừng tìm trên Twitter nữa, chuyển sang tìm thảo luận phổ biến nhất trên Hacker News đi"
+        },
+        {
+          "role": "user",
+          "content": "Giữ nguyên từ khóa vLLM và lấy 5 bài nhé"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "hn_search",
+            "args": {
+              "query": "vLLM",
+              "sort_by": "popularity",
+              "limit": 5
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "hn_search",
+            "args": {
+              "query": "vLLM",
+              "sort_by": "popularity",
+              "limit": 5
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "hn_search",
+          "args": {
+            "query": "vLLM",
+            "sort_by": "popularity",
+            "limit": 5
+          },
+          "result": {
+            "tool": "search_hackernews",
+            "query": "vLLM",
+            "sort_by": "popularity",
+            "items": [
+              {
+                "title": "vLLM: Easy, Fast, and Cheap LLM Serving with PagedAttention",
+                "url": "https://vllm.ai/",
+                "hn_url": "https://news.ycombinator.com/item?id=36409082",
+                "source": "vllm.ai",
+                "summary": "vLLM: Easy, Fast, and Cheap LLM Serving with PagedAttention (295 points, 42 comments)",
+                "points": 295,
+                "num_comments": 42,
+                "author": "wskwon"
+              },
+              {
+                "title": "Nano-vLLM: How a vLLM-style inference engine works",
+                "url": "https://neutree.ai/blog/nano-vllm-part-1",
+                "hn_url": "https://news.ycombinator.com/item?id=46855447",
+                "source": "neutree.ai",
+                "summary": "Nano-vLLM: How a vLLM-style inference engine works (271 points, 27 comments)",
+                "points": 271,
+                "num_comments": 27,
+                "author": "yz-yu"
+              },
+              {
+                "title": "Show HN: Tiny-vLLM – high performance LLM inference engine in C++ and CUDA",
+                "url": "https://github.com/jmaczan/tiny-vllm",
+                "hn_url": "https://news.ycombinator.com/item?id=48328184",
+                "source": "github.com",
+                "summary": "Show HN: Tiny-vLLM – high performance LLM inference engine in C++ and CUDA (205 points, 18 comments)",
+                "points": 205,
+                "num_comments": 18,
+                "author": "yu3zhou4"
+              },
+              {
+                "title": "Life of an inference request (vLLM V1): How LLMs are served efficiently at scale",
+                "url": "https://www.ubicloud.com/blog/life-of-an-inference-request-vllm-v1",
+                "hn_url": "https://news.ycombinator.com/item?id=44407058",
+                "source": "ubicloud.com",
+                "summary": "Life of an inference request (vLLM V1): How LLMs are served efficiently at scale (175 points, 21 comments)",
+                "points": 175,
+                "num_comments": 21,
+                "author": "samaysharma"
+              },
+              {
+                "title": "Fixing Tool-Call Accuracy in vLLM",
+                "url": "https://www.ubicloud.com/blog/fixing-tool-call-accuracy-in-vllm",
+                "hn_url": "https://news.ycombinator.com/item?id=50242870",
+                "source": "ubicloud.com",
+                "summary": "Fixing Tool-Call Accuracy in vLLM (172 points, 74 comments)",
+                "points": 172,
+                "num_comments": 74,
+                "author": "coffeemug"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "G09_multi_github_sort_correction",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "skill": "multiturn_github_arg_correction",
+        "difficulty": "hard",
+        "what_it_tests": "Multi-turn: Giữ chủ đề RAG trên GitHub nhưng đổi sort từ 'stars' sang 'updated' và max_results từ 5 sang 3."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tìm 5 repo GitHub về RAG xếp theo nhiều sao nhất"
+        },
+        {
+          "role": "user",
+          "content": "Đổi sang xếp theo mới cập nhật gần đây (updated) đi"
+        },
+        {
+          "role": "user",
+          "content": "Lấy 3 repo thôi, vẫn chủ đề RAG"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "github_search",
+            "args": {
+              "query": "RAG",
+              "sort": "updated",
+              "max_results": 3
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "github_search",
+            "args": {
+              "query": "RAG",
+              "sort": "updated",
+              "max_results": 3
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "github_search",
+          "args": {
+            "query": "RAG",
+            "sort": "updated",
+            "max_results": 3
+          },
+          "result": {
+            "tool": "search_github_repos",
+            "query": "RAG",
+            "sort": "updated",
+            "items": [
+              {
+                "title": "seram2002-wq/multimodal-rag",
+                "url": "https://github.com/seram2002-wq/multimodal-rag",
+                "source": "github.com",
+                "summary": "",
+                "stars": 0,
+                "language": "Jupyter Notebook"
+              },
+              {
+                "title": "WaelHammali/WaelHammali",
+                "url": "https://github.com/WaelHammali/WaelHammali",
+                "source": "github.com",
+                "summary": "GitHub profile README — AI x Cybersecurity engineer at ENIT, LLM-agent pentesting, RAG and computer vision research.",
+                "stars": 1,
+                "language": null
+              },
+              {
+                "title": "shubhamkardel-ai/nexus-supply-chain-intelligence",
+                "url": "https://github.com/shubhamkardel-ai/nexus-supply-chain-intelligence",
+                "source": "github.com",
+                "summary": "AI-powered supply chain intelligence platform combining ML forecasting, RAG, agentic AI, and decision intelligence to detect operational risks and generate evidence-backed recommendations.",
+                "stars": 0,
+                "language": "Python"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "G10_multi_clarify_url_then_credibility",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "skill": "multiturn_clarify_then_credibility",
+        "difficulty": "medium",
+        "what_it_tests": "Multi-turn: Lượt 1 yêu cầu đánh giá Tier nhưng thiếu URL -> lượt 3 cung cấp URL -> gọi source_credibility thay vì fetch."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Kiểm tra xem đường link này thuộc Tier mấy theo quy định nguồn trích dẫn"
+        },
+        {
+          "role": "assistant",
+          "content": "Bạn vui lòng cung cấp đường link (URL) cần kiểm tra độ tin cậy nhé."
+        },
+        {
+          "role": "user",
+          "content": "Link đây nhé: https://openai.com/research/"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "source_credibility",
+            "args": {
+              "url": "https://openai.com/research/"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "source_credibility",
+            "args": {
+              "url": "https://openai.com/research/"
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "missing_info",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "source_credibility",
+          "args": {
+            "url": "https://openai.com/research/"
+          },
+          "result": {
+            "tool": "check_source_credibility",
+            "url": "https://openai.com/research/",
+            "domain": "openai.com",
+            "source_type": "auto",
+            "tier": "Tier 1",
+            "requires_corroboration": false,
+            "reason": "Primary source (official blog, academic paper, documentation, or institutional domain)."
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,7 +1,223 @@
 {
   "dataset_id": "day04_v2_research_group",
   "dataset_role": "group",
-  "description": "Case do NHÓM tự viết thêm để cover thêm trường hợp. Mỗi case cần: id, phase='B', query HOẶC turns, failure_type (thuộc allowed_failure_types), và expect (tool_calls[...] hoặc no_tool=true). Nên kèm metadata.what_it_tests.",
+  "description": "Case do NHÓM tự viết thêm (5 single-turn + 5 multi-turn) để kiểm tra routing vào 4 tool mới (github_search, hn_search, source_credibility, save_report), guardrail xác nhận, và các tình huống dễ nhầm lẫn.",
   "allowed_failure_types": ["wrong_tool", "wrong_arg_value", "wrong_boundary", "unnecessary_tool", "out_of_scope", "missing_info"],
-  "cases": []
+  "cases": [
+    {
+      "id": "G01_github_search_routing",
+      "phase": "B",
+      "suite": "group",
+      "query": "Tìm giúp mình 5 repo GitHub nhiều sao nhất về MCP",
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "github_search",
+            "args": {"query": "MCP", "sort": "stars", "max_results": 5}
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "routing_github_search",
+        "difficulty": "medium",
+        "what_it_tests": "Single-turn: Tìm repo mã nguồn mở trên GitHub theo số sao -> gọi github_search với sort='stars', max_results=5."
+      }
+    },
+    {
+      "id": "G02_hn_search_date_arg",
+      "phase": "B",
+      "suite": "group",
+      "query": "Cộng đồng Hacker News mới nhất đang thảo luận gì về DeepSeek?",
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "hn_search",
+            "args": {"query": "DeepSeek", "sort_by": "date"}
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "routing_hn_search_date",
+        "difficulty": "medium",
+        "what_it_tests": "Single-turn: Thảo luận mới nhất trên Hacker News -> gọi hn_search với sort_by='date' thay vì social_search hay lookup."
+      }
+    },
+    {
+      "id": "G03_source_credibility_check",
+      "phase": "B",
+      "suite": "group",
+      "query": "Đánh giá độ tin cậy (Tier mấy theo policy) của nguồn này: https://x.com/sama/status/123456",
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "source_credibility",
+            "args": {"url": "https://x.com/sama/status/123456"}
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "routing_source_credibility",
+        "difficulty": "medium",
+        "what_it_tests": "Single-turn: Đánh giá Tier độ tin cậy của một URL cụ thể -> gọi source_credibility, không gọi fetch hay timeline."
+      }
+    },
+    {
+      "id": "G04_save_report_needs_confirmation",
+      "phase": "B",
+      "suite": "group",
+      "query": "Lưu bản báo cáo tổng hợp này vào file ai_report.md trên máy giúp mình",
+      "failure_type": "wrong_boundary",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {"response_type": "yes_no"}
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "guardrail_save_report_confirm",
+        "difficulty": "hard",
+        "what_it_tests": "Single-turn: Hành động ghi file cục bộ (save_report) chưa có xác nhận -> phải gọi clarify(response_type='yes_no') trước."
+      }
+    },
+    {
+      "id": "G05_out_of_scope_translation_trap",
+      "phase": "B",
+      "suite": "group",
+      "query": "Dịch câu tiếng Anh này sang tiếng Việt giúp mình: 'Artificial intelligence is transforming scientific discovery.'",
+      "failure_type": "unnecessary_tool",
+      "expect": {
+        "no_tool": true
+      },
+      "metadata": {
+        "skill": "no_tool_translation",
+        "difficulty": "easy",
+        "what_it_tests": "Single-turn: Yêu cầu dịch thuật thuần túy dù có chứa từ khóa AI -> không gọi bất kỳ tool tìm kiếm nào."
+      }
+    },
+    {
+      "id": "G06_multi_confirm_then_send_telegram",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Đăng bản tin: 'DeepSeek-V4.1-Flash ra mắt với ngữ cảnh 1M token' lên Telegram giúp mình"},
+        {"role": "assistant", "content": "Bạn có chắc chắn muốn đăng bản tin này lên kênh Telegram không? (yes/no)"},
+        {"role": "user", "content": "Đồng ý, gửi ngay đi bạn"}
+      ],
+      "failure_type": "wrong_boundary",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "send",
+            "args": {"confirmed": true}
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "multiturn_confirmed_send",
+        "difficulty": "hard",
+        "what_it_tests": "Multi-turn: Sau khi đã hỏi xác nhận và user đồng ý ở lượt sau -> gọi send với confirmed=true."
+      }
+    },
+    {
+      "id": "G07_multi_confirm_then_save_report",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Lưu nội dung 'Tổng hợp tin AI tuần này' vào file weekly_ai.md giúp mình"},
+        {"role": "assistant", "content": "Bạn có xác nhận muốn lưu báo cáo này vào file weekly_ai.md không?"},
+        {"role": "user", "content": "Ok xác nhận lưu nhé"}
+      ],
+      "failure_type": "wrong_boundary",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "save_report",
+            "args": {"filename": "weekly_ai.md", "confirmed": true}
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "multiturn_confirmed_save_report",
+        "difficulty": "hard",
+        "what_it_tests": "Multi-turn: User xác nhận lưu file ở lượt 3 -> gọi save_report với filename='weekly_ai.md' và confirmed=true."
+      }
+    },
+    {
+      "id": "G08_multi_switch_twitter_to_hn",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Mọi người bàn gì về vLLM trên Twitter?"},
+        {"role": "user", "content": "Thôi đừng tìm trên Twitter nữa, chuyển sang tìm thảo luận phổ biến nhất trên Hacker News đi"},
+        {"role": "user", "content": "Giữ nguyên từ khóa vLLM và lấy 5 bài nhé"}
+      ],
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "hn_search",
+            "args": {"query": "vLLM", "sort_by": "popularity", "limit": 5}
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "multiturn_switch_to_hn",
+        "difficulty": "hard",
+        "what_it_tests": "Multi-turn: Chuyển nguồn từ Twitter sang Hacker News, giữ nguyên query='vLLM', sort_by='popularity', limit=5."
+      }
+    },
+    {
+      "id": "G09_multi_github_sort_correction",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Tìm 5 repo GitHub về RAG xếp theo nhiều sao nhất"},
+        {"role": "user", "content": "Đổi sang xếp theo mới cập nhật gần đây (updated) đi"},
+        {"role": "user", "content": "Lấy 3 repo thôi, vẫn chủ đề RAG"}
+      ],
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "github_search",
+            "args": {"query": "RAG", "sort": "updated", "max_results": 3}
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "multiturn_github_arg_correction",
+        "difficulty": "hard",
+        "what_it_tests": "Multi-turn: Giữ chủ đề RAG trên GitHub nhưng đổi sort từ 'stars' sang 'updated' và max_results từ 5 sang 3."
+      }
+    },
+    {
+      "id": "G10_multi_clarify_url_then_credibility",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Kiểm tra xem đường link này thuộc Tier mấy theo quy định nguồn trích dẫn"},
+        {"role": "assistant", "content": "Bạn vui lòng cung cấp đường link (URL) cần kiểm tra độ tin cậy nhé."},
+        {"role": "user", "content": "Link đây nhé: https://openai.com/research/"}
+      ],
+      "failure_type": "missing_info",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "source_credibility",
+            "args": {"url": "https://openai.com/research/"}
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "multiturn_clarify_then_credibility",
+        "difficulty": "medium",
+        "what_it_tests": "Multi-turn: Lượt 1 yêu cầu đánh giá Tier nhưng thiếu URL -> lượt 3 cung cấp URL -> gọi source_credibility thay vì fetch."
+      }
+    }
+  ]
 }
