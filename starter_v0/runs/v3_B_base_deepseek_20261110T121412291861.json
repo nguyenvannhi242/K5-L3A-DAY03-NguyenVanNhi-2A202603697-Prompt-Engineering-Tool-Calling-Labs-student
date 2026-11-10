@@ -1,5 +1,5 @@
 {
-  "run_id": "v3_B_base_deepseek_20261110T120839652318",
+  "run_id": "v3_B_base_deepseek_20261110T121412291861",
   "version": "v3",
   "artifact_version": "v3+pcbcca6b347e7+tc8e7a28eb7ee",
   "prompt_hash": "cbcca6b347e7216fad6a9dd9daa8e0b35f27805dbf24bd3bc40c28782a0034a5",
@@ -7,14 +7,14 @@
   "phase": "B",
   "suite": "base",
   "provider": "deepseek",
-  "model": "deepseek-chat",
+  "model": "deepseek-flash",
   "system_prompt": "C:\\Users\\LAPTOP\\Desktop\\WORKSPACE\\LAB 20K AI\\K5-L3A-DAY03-NguyenVanNhi-2A202603697-Prompt-Engineering-Tool-Calling-Labs-student\\starter_v0\\artifacts\\system_prompt.md",
   "tools": "C:\\Users\\LAPTOP\\Desktop\\WORKSPACE\\LAB 20K AI\\K5-L3A-DAY03-NguyenVanNhi-2A202603697-Prompt-Engineering-Tool-Calling-Labs-student\\starter_v0\\artifacts\\tools.yaml",
   "eval_cases": "data\\eval_base.json",
   "dataset_id": "day04_v2_research_base",
   "dataset_role": "base",
   "description": "Core eval cho research agent: routing đúng tool + đúng args, hỏi lại khi thiếu (ask_user), xác nhận trước khi gửi, và xử lý câu ngoài phạm vi / không cần tool. Chấm trên tool_calls + args (subset). KHÔNG sửa file này — chỉ thêm case vào eval_group.json.",
-  "generated_at": "2026-11-10T12:08:39",
+  "generated_at": "2026-11-10T12:14:12",
   "summary": {
     "total_cases": 20,
     "measured_cases": 20,
@@ -59,7 +59,7 @@
             "name": "timeline",
             "args": {
               "screenname": "sama",
-              "limit": 5
+              "limit": 3
             }
           }
         ],
@@ -74,7 +74,7 @@
           "tool": "timeline",
           "args": {
             "screenname": "sama",
-            "limit": 5
+            "limit": 3
           },
           "result": {
             "tool": "get_user_tweets",
@@ -89,7 +89,7 @@
                 "metrics": {
                   "favorites": 0,
                   "retweets": 53,
-                  "views": "47391"
+                  "views": "47395"
                 }
               },
               {
@@ -101,7 +101,7 @@
                 "metrics": {
                   "favorites": 0,
                   "retweets": 2703,
-                  "views": "41965"
+                  "views": "41969"
                 }
               },
               {
@@ -113,31 +113,7 @@
                 "metrics": {
                   "favorites": 20659,
                   "retweets": 1019,
-                  "views": "10643163"
-                }
-              },
-              {
-                "title": "RT @danintheory: We are announcing three new discoveries in mathematics, computer science, and physics about harmonic an",
-                "summary": "RT @danintheory: We are announcing three new discoveries in mathematics, computer science, and physics about harmonic analysis, complexity…",
-                "url": "https://x.com/sama/status/2114864981934329996",
-                "source": "@sama",
-                "date": "Mon Oct 26 23:41:18 +0000 2026",
-                "metrics": {
-                  "favorites": 0,
-                  "retweets": 1117,
-                  "views": "48208"
-                }
-              },
-              {
-                "title": "6.1 Terra is here! It is good at a lot of things, but we are especially excited for this new era of computer use.",
-                "summary": "6.1 Terra is here! It is good at a lot of things, but we are especially excited for this new era of computer use.",
-                "url": "https://x.com/sama/status/2114818620782248024",
-                "source": "@sama",
-                "date": "Mon Oct 26 20:37:05 +0000 2026",
-                "metrics": {
-                  "favorites": 10109,
-                  "retweets": 493,
-                  "views": "1653139"
+                  "views": "10643302"
                 }
               }
             ]
@@ -174,7 +150,7 @@
             "name": "social_search",
             "args": {
               "query": "GPT-5",
-              "search_type": "Top",
+              "search_type": "Latest",
               "limit": 10
             }
           }
@@ -190,132 +166,132 @@
           "tool": "social_search",
           "args": {
             "query": "GPT-5",
-            "search_type": "Top",
+            "search_type": "Latest",
             "limit": 10
           },
           "result": {
             "tool": "search_tweets",
             "query": "GPT-5",
-            "search_type": "Top",
+            "search_type": "Latest",
             "items": [
               {
-                "title": "HOLY SH*T, YOUR JOB ISN’T SAFE IN 2027. LEARN THIS BEFORE IT’S TOO LATE.",
-                "summary": "HOLY SH*T, YOUR JOB ISN’T SAFE IN 2027. LEARN THIS BEFORE IT’S TOO LATE.\n\n7 GitHub repos that could help you stay ahead of AI instead of getting replaced by it:\n\n1. GPT Researcher\n\nan AI research agent that searches the web, investigates complex topics and writes detailed reports with sources.\n\nhttps://t.co/Tmq4344MK5\n\n2. OpenHands\n\nan AI software engineer that can write code, fix bugs and work on development tasks.\n\nhttps://t.co/XDeSQHh6it\n\n3. Activepieces\n\nautomates repetitive work across apps and lets AI agents execute real workflows.\n\nhttps://t.co/EzpsgWXeuF\n\n4. CrewAI\n\nbuild teams of AI agents that divide tasks, collaborate and work toward a shared goal.\n\nhttps://t.co/YaSm8mKDY0\n\n5. Flowise\n\nbuild AI agents and automated workflows visually, without writing everything from scratch.\n\nhttps://t.co/JOtPvPVx9s\n\n6. Crawl4AI\n\nturn websites into structured data for AI research, analysis and automation.\n\nhttps://t.co/4pJrQS8NCm\n\n7. Open Interpreter\n\nlets AI run code on your computer to analyze files, process data and automate tasks.\n\nhttps://t.co/Zvb9A7Jwgo\n\nthe scary part?\n\nyour next competitor might not have a bigger team.\n\njust better AI tools.\n\nlearn them now, or compete with someone who already has.\n\nwant more videos like this?\n\nlike it, bookmark it, share it with a friend.\n\nand tell me in the comments which AI agent you want me to visualize next.",
-                "url": "https://x.com/thegreatest_sv/status/2118325722850697573",
-                "source": "@thegreatest_sv",
-                "date": "Thu Nov 05 12:53:03 +0000 2026",
+                "title": "我靠 原来grok bot重置之后 ",
+                "summary": "我靠 原来grok bot重置之后 \n\n重置时间不会变\n\n已经被gpt训傻了 以为其他模型重置也是会重置时间的\n\n5个小时之后就重置了！还剩一大截 速蹬！ https://t.co/GBGrSufGuz",
+                "url": "https://x.com/Passenger0522/status/2120021819935846566",
+                "source": "@Passenger0522",
+                "date": "Tue Nov 10 05:12:44 +0000 2026",
                 "metrics": {
-                  "favorites": 197,
-                  "retweets": 29,
-                  "views": "13232"
+                  "favorites": 0,
+                  "retweets": 0,
+                  "views": null
                 }
               },
               {
-                "title": "omg.. claude is controlling real robots now",
-                "summary": "omg.. claude is controlling real robots now\n\nfable 5.2 solves a puzzle cube, unscrews a bottle cap, fits a gear and draws a little robot. even on tasks it was never explicitly trained to do.\n\non RoboDojo (a simulated two-arm robot test) it scored 64.9% in anthropic's runs. GPT-6 Astra got 29.8%.\n\na general-purpose model is beating most AI built only for robots.\n\n https://t.co/uceos2esvD",
-                "url": "https://x.com/sairahul1/status/2120012322387403069",
-                "source": "@sairahul1",
-                "date": "Tue Nov 10 04:35:00 +0000 2026",
+                "title": "@WorstTimeLine45 Right, so your example of genai being bad is to use an example of old model that you probably get for f",
+                "summary": "@WorstTimeLine45 Right, so your example of genai being bad is to use an example of old model that you probably get for free now in Pakistan?  gpt-image-2 costs like 5% of the average daily wage in Pakistan every time you generate.  I don't believe you've ever used it.",
+                "url": "https://x.com/SyntheticBeef/status/2120021681435754593",
+                "source": "@SyntheticBeef",
+                "date": "Tue Nov 10 05:12:11 +0000 2026",
                 "metrics": {
-                  "favorites": 5,
-                  "retweets": 2,
-                  "views": "1041"
+                  "favorites": 0,
+                  "retweets": 0,
+                  "views": "2"
                 }
               },
               {
-                "title": "GPT-6 Astra really spent $6 and 11 minutes building a submarine that looks like a yellow potato from Minecraft 😭",
-                "summary": "GPT-6 Astra really spent $6 and 11 minutes building a submarine that looks like a yellow potato from Minecraft 😭\n\nMeanwhile Blender MCP built an entire underwater scene with realistic lighting, coral reefs and a detailed submarine for $9 💀\n\nSame prompt, 4 AI workflows\n\nThe underwater disaster report\n\n🥇 Blender MCP → $9 / 20 min\n🥈 Claude Code → $14 / 28 min\n🥉 Kimi K3.1 → $2 / 3 min\n💀 GPT-6 Astra → $6 / 11 min\n\nAnd here’s the funniest part\n\nKimi was 3x cheaper and almost 4x faster than Astra, yet still managed to build something that actually resembles a submarine\n\nMeanwhile Astra apparently decided polygons were a luxury feature 😭\n\nimagine asking AI to explore the ocean and getting a floating LEGO potato 💀",
-                "url": "https://x.com/Lummox_eth/status/2118775368228409350",
-                "source": "@Lummox_eth",
-                "date": "Fri Nov 06 18:39:47 +0000 2026",
+                "title": "I'm really looking forward to what GPT-5 brings. It feels like we're on the cusp of some major breakthroughs that could ",
+                "summary": "I'm really looking forward to what GPT-5 brings. It feels like we're on the cusp of some major breakthroughs that could help a lot of people in new and exciting ways. The future of AI is looking pretty bright! https://t.co/htgRIaoW6M",
+                "url": "https://x.com/taxiina/status/2120021607511117897",
+                "source": "@taxiina",
+                "date": "Tue Nov 10 05:11:53 +0000 2026",
                 "metrics": {
-                  "favorites": 477,
-                  "retweets": 37,
-                  "views": "76947"
+                  "favorites": 0,
+                  "retweets": 0,
+                  "views": "2"
                 }
               },
               {
-                "title": "Claude Code really spent $102 and 28 minutes building a steam train that looks like a Minecraft furnace on wheels 😭",
-                "summary": "Claude Code really spent $102 and 28 minutes building a steam train that looks like a Minecraft furnace on wheels 😭\n\nMeanwhile GPT-6 Astra built an entire cinematic railway scene for $40 in 11 minutes\n\nSame prompt, 4 AI workflows\n\n🥇 Blender MCP → $67 / 20 min\n🥈 GPT-6 Astra → $40 / 11 min\n🥉 Kimi K3.1 → $12 / 3 min\n💀 Claude 3.5 Sonnet → $102 / 28 min\n\nClaude was 8.5x more expensive and 9.3x slower than Kimi in this comparison\n\nBut here’s the plot twist\n\nBlender MCP actually delivered the most cinematic result, with thick steam, realistic metal textures and dramatic lighting\n\nMeanwhile Claude Code apparently decided that wheels and a chimney were enough to qualify as a train\n\nimagine paying $102 for a steam locomotive and getting a gray refrigerator on railway tracks a year ago ☠️",
-                "url": "https://x.com/Lummox_eth/status/2119364713930690712",
-                "source": "@Lummox_eth",
-                "date": "Sun Nov 08 09:41:38 +0000 2026",
+                "title": "He had AI study his own videos, and went from 15,000 to 100,000 followers in about four months.",
+                "summary": "He had AI study his own videos, and went from 15,000 to 100,000 followers in about four months.\n\nSo I asked @AiWithAngus to walk me through every level of using AI, from treating ChatGPT like Google to running parts of your business with no human in the loop.\n\n00:00:00 The 5 Levels of Using AI\n00:00:35 Level 1: Why Custom GPT Experts Only Sound Expert\n00:01:20 Where to Start If You've Never Used AI\n00:02:40 Connect AI to Your Real Data\n00:04:14 The 95% Prompt Trick\n00:04:42 Level 2: Skills Have the Biggest Impact\n00:05:45 Skills vs Agents\n00:07:01 If You've Done It Twice, Make It a Skill\n00:09:25 The Biggest Mistake People Make With Skills\n00:10:13 Why a Downloaded Skill Can't Replace Your Editor\n00:13:45 Level 3: A Second Brain for Your Business\n00:14:36 Why More Context Makes AI Dumber\n00:22:15 The Simplest Way to Start a Second Brain\n00:24:27 Find Any Connector You Need\n00:28:16 How He Turns His Instagram Data Into Video Ideas\n00:31:51 How an Orchestrator Agent Keeps Context Clean\n00:33:39 Why Teams of AI Agents Produce Slop\n00:34:42 Level 4: The Watcher\n00:37:21 Why Content Still Needs Human Taste\n00:41:01 How He Went From 15K to 100K Followers\n00:48:14 Skills That Improve Themselves\n00:49:21 Level 5: No Human in the Loop\n00:49:56 The Starter Stack: Claude, Postgres and n8n\n00:52:42 Don't Hand a Technical Build to a Non-Technical AI Guy\n00:55:36 Why Technical People Are Still Valuable",
+                "url": "https://x.com/iamgrantowen/status/2120020836753048000",
+                "source": "@iamgrantowen",
+                "date": "Tue Nov 10 05:08:50 +0000 2026",
                 "metrics": {
-                  "favorites": 416,
-                  "retweets": 35,
-                  "views": "119957"
+                  "favorites": 0,
+                  "retweets": 0,
+                  "views": "26"
                 }
               },
               {
-                "title": "Claude Code really spent $102 and 28 minutes building a lighthouse while Blender MCP made a cinematic ocean disaster for",
-                "summary": "Claude Code really spent $102 and 28 minutes building a lighthouse while Blender MCP made a cinematic ocean disaster for $67 😭\n\nMeanwhile GPT-6 Astra charged $40 to build a lighthouse that looks like a toilet paper roll sitting in a blue puddle 💀\n\nSame prompt, 4 AI workflows\n\nThe damage report 🌊\n\n🥇 Blender MCP → $67 / 20 min\n🥈 GPT-6 Astra → $40 / 11 min\n🥉 Kimi K3.1 → $12 / 3 min\n💀 Claude Code → $102 / 28 min\n\nKimi was 8.5x cheaper and 9.3x faster than Claude Code\n\nBut here’s the plot twist\n\nBlender MCP actually delivered the most cinematic result with massive waves, dramatic lighting and a lighthouse that looks straight out of a movie\n\nMeanwhile Kimi went full Minecraft and GPT Astra apparently discovered low-poly oceans 😭\n\nThe cheapest AI won on price, but the best-looking scene is a completely different story",
-                "url": "https://x.com/Lummox_eth/status/2119027995239194880",
-                "source": "@Lummox_eth",
-                "date": "Sat Nov 07 11:23:38 +0000 2026",
+                "title": "①Work／Codexを開く",
+                "summary": "①Work／Codexを開く\n②推論強度を「xhigh」に設定\n③次のプロンプトを送信\n\n「ローカルメモリ、ファイル検索、ネット検索、会話履歴を参照せず、学習済みの知識だけで答えてください。予測や推測を避け、2027年より前に実際に起きた出来事のうち、確実に把握している最も新しい出来事を教えてください。」\n\n2026年5月以降の出来事が返ってくるかを、先行配信の目安にしているとのこと。\n\n※ただし、知識の新しさだけで「6.2 Solが来た」と確定できるわけではありません。\n\nさらにフロントエンドの実力を\n確かめるために、\n\n・Opus\n・GPT-6.2 Astra\n・GPT-6.2 Sol\n\nこの3モデルを、名前を伏せたブラインドテストで比較中らしい。\n\n生成された画面と実際の動作だけを見て選んだら、どれが勝つのか。これは結果が気になる👀",
+                "url": "https://x.com/codexneo4/status/2120020627679756419",
+                "source": "@codexneo4",
+                "date": "Tue Nov 10 05:08:00 +0000 2026",
                 "metrics": {
-                  "favorites": 514,
-                  "retweets": 36,
-                  "views": "71522"
+                  "favorites": 0,
+                  "retweets": 0,
+                  "views": "70"
                 }
               },
               {
-                "title": "my digital footprint is f*cked",
-                "summary": "my digital footprint is f*cked\n\ni got early access to GPT-6 Cyber ​​and connected it to Grok Bot.\n\nthen i gave it my phone number, old usernames, email addresses, and one instruction:\n\n“find every version of me that’s still out there.”\n\ni expected abandoned accounts.\n\nit found an address i moved out of years ago. a profile under a username i’d forgotten. my number attached to a company i no longer work for.\n\nthen Grok started connecting the records.\n\ndifferent websites. different names. the same person.\n\nme.\n\nGrok handled the search.\nCyber ​​investigated the weak points.\nGrok used the openings to reach the databases and remove the matching records.\n\ni was watching the terminal on my phone when the first profile disappeared.\n\nrefreshed the page.\n\ngone.\n\nanother record. another lookup. another result that no longer focused on me.\n\nthe part that got me wasn’t the code flying across the screen.\n\nit was searching my own number afterward and getting nothing useful back.\n\ni’d spent years blocking individual spam callers while the same information kept getting passed around.\n\nnow the phone was quiet.\n\nno “quick question.”\nno recruiter asking about a job from three years ago.\nno stranger who somehow already knew my name.\n\ni kept checking whether my phone was on silent.\n\nit wasn't.\n\nfor once, searching for me didn’t hand someone a map of my life.\n\nthe setup, prompts, and practical privacy-cleanup workflow are below ↓",
-                "url": "https://x.com/k1rallik/status/2118450091312730354",
-                "source": "@k1rallik",
-                "date": "Thu Nov 05 21:07:15 +0000 2026",
+                "title": "Chat GPT Plus🪸",
+                "summary": "Chat GPT Plus🪸\n\n07 วัน 𓏔 50 บาท\n┈┈┈┈┈┈┈\n30 วัน 𓏔 179 บาท ⚠️\n꒰ รีnวิตเหลือ 109 บาท ꒱\n\nเมลร้าน หาร5 เมลปิดรับเคลม\nโมเดล GPT5,GPT4o,GPT6.6\n\nสั่งซื้อ ➡️ https://t.co/taYzZ8AbDh\n “thx u for Oder”\n\n#หารchatgpt #หารแชทจีพีที \n#หารchatgptplus นจกแกกววข https://t.co/GKjnNC7Ntj",
+                "url": "https://x.com/memeuaing/status/2120020065341091869",
+                "source": "@memeuaing",
+                "date": "Tue Nov 10 05:05:46 +0000 2026",
                 "metrics": {
-                  "favorites": 187,
-                  "retweets": 18,
-                  "views": "15764"
+                  "favorites": 0,
+                  "retweets": 0,
+                  "views": "25"
                 }
               },
               {
-                "title": "Claude Opus 5.5 really spent $68 and 20 minutes building a firefighting plane that looks like it came straight out of a ",
-                "summary": "Claude Opus 5.5 really spent $68 and 20 minutes building a firefighting plane that looks like it came straight out of a 2008 flight simulator 😭\n\nMeanwhile GPT-6 Astra built an entire cinematic wildfire rescue scene for just $12 in 3 minutes\n\nSame prompt, 4 AI workflows\n\nThe firefighting disaster report 💀\n\n🥇 GPT-6 Astra → $12 / 3 min\n🥈 Blender MCP → $41 / 11 min\n🥉 Opus 5.5 → $68 / 20 min\n💀 Kimi K3.1 → $104 / 28 min\n\nAstra was 5.7x cheaper and 6.7x faster than Opus in this comparison\n\nAnd somehow the $12 version has the dramatic lighting, massive water drop and wildfire atmosphere you’d expect from a movie\n\nMeanwhile Kimi spent $104 turning an emergency rescue mission into Minecraft DLC 😭",
-                "url": "https://x.com/Lummox_eth/status/2119857933093945378",
-                "source": "@Lummox_eth",
-                "date": "Mon Nov 09 18:21:30 +0000 2026",
+                "title": "30 Websites That Feel \"Illegal\" But Are Perfectly Legal",
+                "summary": "30 Websites That Feel \"Illegal\" But Are Perfectly Legal\n\n1. https://t.co/Mpra7rplzQ — Free unlimited AI image generation, quality rivals Midjourney\n\n2. https://t.co/7el1tySQqb — Real-time AI image generation, draws as you go  \n\n3. https://t.co/rwzTI56gTL — AI unlimited image upscaling, details auto-filled  \n\n4. https://t.co/FSrKZoRuLh — AI one-click background removal/lighting fix/erasure  \n\n5. https://t.co/1cbdI4faKX — AI voice cloning, mimics any voice in 5 seconds  \n\n6. https://t.co/WlkCt4Zd56 — Input lyrics to auto-generate full songs  \n\n7. https://t.co/d3wxThSGRb — AI video generation pioneer, free Gen-3 trial  \n\n8. https://t.co/edv6RoInfb — Kuaishou Keling AI, smoothest Chinese video generation  \n\n9. https://t.co/T98kHR2LNq — One photo + one audio clip = talking digital human  \n\n10. https://t.co/AxAfu6c3yX — Turns static photos into talking videos  \n\n11. https://t.co/IuEAtRofIX — AI code writing, free quota enough for daily use  \n\n12. https://t.co/9y4fqvY3EH — Build websites by talking, zero code  \n\n13. https://t.co/Z0ARygSe7y — Vercel AI frontend generator, description becomes page  \n\n14. https://t.co/ib5UQNWcAs — Code in browser + AI assistance + one-click deploy  \n\n15. https://t.co/VEpQD51dUV — Paste text to auto-generate infographics  \n\n16. https://t.co/MFv3toFwgH — AI one-click PPT generation, say goodbye to PPT hell  \n\n17. https://t.co/NzQptvjAgT — Notion AI for writing, summarizing, translating  \n\n18. https://t.co/vHwTvGNVNr — Sketch a drawing, AI generates real webpage  \n\n19. https://t.co/g6YZim9yhb — AI search engine, answers any question instantly + sources  \n\n20. https://t.co/Eaq4F7V1OX — Developer-exclusive AI search, code issues solved on search  \n\n21. https://t.co/x656gtXJHS — Real-time meeting transcription, free 300 minutes monthly  \n\n22. https://t.co/HYWOYNNc9p — AI short video editing, auto-finds highlight clips \n\n23. https://t.co/49TD1mNqgx — One site to use GPT-4o / Claude / Gemini  \n\n24. https://t.co/o4lpn0kSgF — Open-source AI model free playground  \n\n25. https://t.co/HzcuPEp5UO — One-click AI background removal, 1-second output  \n\n26. https://t.co/Pc1F9g7tpq — AI erases any object from photos  \n\n27. https://t.co/ZYVqa5MjPs — AI face swap, 1-minute turnaround  \n\n28. https://t.co/vXbSLBVOqI — AI music tagging + recommendations  \n\n29. https://t.co/yXAZDOT4hj — AI writing assistant, free version enough for daily use  \n\n30. https://t.co/dWjoB8uPoZ — Anthropic free AI assistant, top-tier long-text handling\n\nFollow @leonParkercoder for more information...🤦‍♂️",
+                "url": "https://x.com/leonParkercoder/status/2120019994373452080",
+                "source": "@leonParkercoder",
+                "date": "Tue Nov 10 05:05:29 +0000 2026",
                 "metrics": {
-                  "favorites": 115,
-                  "retweets": 6,
-                  "views": "27410"
+                  "favorites": 1,
+                  "retweets": 1,
+                  "views": "30"
                 }
               },
               {
-                "title": "Gemini 4 Argon vs Gemini 4 Hydrogen vs Claude Opus 5.5 vs GPT-6 Astra.",
-                "summary": "Gemini 4 Argon vs Gemini 4 Hydrogen vs Claude Opus 5.5 vs GPT-6 Astra.\n\nHydrogen is wearing the name Gemini 3.8 Flash. Faster, noticeably smarter, and it feels like a different generation.\n\nOpus 5.5 used to be the one to beat. Now it feels like Gemini is pulling away. https://t.co/CFeNW6QxrB",
-                "url": "https://x.com/jony_palino/status/2118757806505644060",
-                "source": "@jony_palino",
-                "date": "Fri Nov 06 17:30:00 +0000 2026",
+                "title": "Miller 用一套流程，一个人做出角色会开口的 AI 短剧：一集 5 分钟，视频这一步大约 27 元。同样的量，用 Seedance 2.5 按火山方舟官方示例价，大约 1,360 元。",
+                "summary": "Miller 用一套流程，一个人做出角色会开口的 AI 短剧：一集 5 分钟，视频这一步大约 27 元。同样的量，用 Seedance 2.5 按火山方舟官方示例价，大约 1,360 元。\n\n编剧和分镜用 Claude（或 DeepSeek），人物和场景图用 GPT Image、即梦或 Nano Banana，在 RunningHub 上用 MiniMax H3 一次出画面和台词，最后用剪映成片。人只做制片：定故事、挑镜头、拍板。\n\n1. 成本怎么算\n\n一集按约 50 段、一段平均 6 秒、每段抽 3 次，大约 150 次生成、15,000 RH币，合 27 元出头，一段大约 2 毛。文中 RunningHub 专业版当时限时 99 元/月，按这个算法大约能做 3 集半。价格以当时页面准，平台会调价。\n\n2. 顺序先锁演员\n\n先出角色身份板（全身、正面、白底，把鞋子写上），每段都喂进去。一段只喂一张场景图。台词要分成「评」「内心独白」「画外音」，避免角色把心里话念出来。声音描述写死，或把第一段满意的声音剪出来当参考；5 秒片段放一两句词。\n\n3. 抽卡和穿帮\n\n工作流的 seed 是固定的，想换一版要改数字。先跑 5 秒预览，满意再出长镜头。穿帮先剪头尾，中间出问题就截帧修好再按首尾帧补，最后才重抽。提示词里不要背景音乐，配乐留到剪映统一加。字幕也别让模型画，到剪映里识别后再对剧本。\n\n文中附 8 段可复制提示词，还有光影速查 https://t.co/9CrX4yvkB5 和短剧技能包 https://t.co/YIQBmpHbQY 。新手路线是先做 10 秒：一句台词、角色和场景各一张图，用签到币试跑 5 秒预览。\n\nhttps://t.co/XPMTYXQfAf",
+                "url": "https://x.com/sky_circle1216/status/2120019418315190762",
+                "source": "@sky_circle1216",
+                "date": "Tue Nov 10 05:03:12 +0000 2026",
                 "metrics": {
-                  "favorites": 114,
-                  "retweets": 10,
-                  "views": "25838"
+                  "favorites": 1,
+                  "retweets": 0,
+                  "views": "28"
                 }
               },
               {
-                "title": "Fable 5.2に取り急ぎいい感じのAIアバターの動画作成をお願いしてみました。",
-                "summary": "Fable 5.2に取り急ぎいい感じのAIアバターの動画作成をお願いしてみました。\n\n台本、編集、曲、差し込みの3D映像まで作ってもらってます。もしかするとOpus 5.5でもできるような気がしなくもありませんが😅\n\nツール\n編集: Claude Fable 5.2 / 声: Gemini TTS / アバター: LTX 2.3 / 画像: GPT Image / 3D: Blender / 字幕タイミング: Soniox / 曲: コードで合成 / 環境: Claude Code + HyperFrames",
-                "url": "https://x.com/nakazakifam/status/2119946561941606493",
-                "source": "@nakazakifam",
-                "date": "Tue Nov 10 00:13:41 +0000 2026",
+                "title": "https://t.co/0YEucUtV2p",
+                "summary": "https://t.co/0YEucUtV2p",
+                "url": "https://x.com/daigomiyoshi_ai/status/2120018622248886541",
+                "source": "@daigomiyoshi_ai",
+                "date": "Tue Nov 10 05:00:02 +0000 2026",
                 "metrics": {
-                  "favorites": 66,
-                  "retweets": 2,
-                  "views": "7305"
+                  "favorites": 0,
+                  "retweets": 0,
+                  "views": "62"
                 }
               },
               {
-                "title": "GPT-6 Astra really spent $34 and 28 minutes building a Japanese shrine that looks like a Roblox map made by a 12-year-ol",
-                "summary": "GPT-6 Astra really spent $34 and 28 minutes building a Japanese shrine that looks like a Roblox map made by a 12-year-old 😭\n\nMeanwhile Blender MCP built an entire cinematic mountain shrine with lightning, glowing lanterns and dramatic storm lighting for just $4 in 3 minutes\n\nSame prompt, 4 AI workflows\n\nThe Japanese architecture disaster report 💀\n\n🥇 Blender MCP → $4 / 3 min\n🥈 Opus 5.5 → $13 / 11 min\n🥉 Kimi K3.1 → $22 / 20 min\n💀 GPT-6 Astra → $34 / 28 min\n\nAstra was 8.5x more expensive and 9.3x slower than Blender MCP in this comparison\n\nAnd here’s where it gets embarrassing\n\nBlender MCP actually delivered a cinematic staircase, realistic stone textures and an entire thunderstorm around the shrine\n\nMeanwhile Astra apparently spent 28 minutes discovering yellow triangles and low-poly mountains 😭\n\nThe funniest part is that the $4 version looks like a scene from a AAA game\n\nAnd the $34 version looks like the tutorial level you skip 💀",
-                "url": "https://x.com/Lummox_eth/status/2119734044623618208",
-                "source": "@Lummox_eth",
-                "date": "Mon Nov 09 10:09:13 +0000 2026",
+                "title": "AIO rewrites vs brand advantage: an exposure audit and a search-off ranking experiment answer different questions. Read ",
+                "summary": "AIO rewrites vs brand advantage: an exposure audit and a search-off ranking experiment answer different questions. Read the 0.44 signature gap and nonsignificant +0.022 rewrite gain; separate mentions, citations and ranks. https://t.co/m88qONwzzr",
+                "url": "https://x.com/haginota/status/2120018008878051530",
+                "source": "@haginota",
+                "date": "Tue Nov 10 04:57:36 +0000 2026",
                 "metrics": {
-                  "favorites": 147,
-                  "retweets": 6,
-                  "views": "12358"
+                  "favorites": 0,
+                  "retweets": 0,
+                  "views": "19"
                 }
               }
             ]
@@ -358,7 +334,7 @@
               "query": "AI",
               "topic": "news",
               "timeframe": "day",
-              "max_results": 8
+              "max_results": 6
             }
           }
         ],
@@ -375,7 +351,7 @@
             "query": "AI",
             "topic": "news",
             "timeframe": "day",
-            "max_results": 8
+            "max_results": 6
           },
           "result": {
             "tool": "web_search",
@@ -424,20 +400,6 @@
                 "source": "thebatt.com",
                 "summary": "I understand the appeal. College is busy. Between classes, jobs, extracurriculars, leadership positions and trying to maintain some semblance of a social life, there are never enough hours in the day. AI makes things easier. It can generate an outline, rewrite a paragraph, summarize a reading or produce an entire essay before you have even finished your Celsius. But convenience does not necessarily facilitate education. [...] There is also something to be said about individuality. AI can generate an argument, imitate a writing style or suggest a creative direction, but our perspectives are developed through our own experiences, disagreements, mistakes and interpretations. The things that make our voices interesting are often the very things that cannot be neatly generated from a prompt. If we constantly rely on the same tools to tell us what to think and how to express it, we risk losing the differences that make [...] I am not asking anyone to abandon AI. I use it, and I recognize the benefits it provides. But I do think we need to become more conscientious about when we use it and what we are asking it to do for us. Let it help with the tedious tasks. Let it serve as a resource. But do not let it become a substitute for your own intellectual development.",
                 "score": 0.4031679
-              },
-              {
-                "title": "Google faces mounting backlash for controversial AI school policy - CBS News",
-                "url": "https://www.cbsnews.com/news/ed-markey-google-ai-search-schools",
-                "source": "cbsnews.com",
-                "summary": "Google maintains that its policy change gives schools more control over how they allow AI into schools. An Alphabet spokesperson also told CBS News that Google's AI features are now so tightly integrated into search that it cannot offer the latter without also enabling the AI services. [...] Markey said Google's decision to block search access for students who opt out of AI \"places schools in an impossible position,\" forcing them to choose between giving students access to a potentially dangerous technology and depriving them of \"a critical educational research tool.\"\n\n\"Although Google has a right to create and offer new educational tools, it should not use its dominant market position to force schools to adopt them,\" he added. [...] Markey is asking Alphabet if Google will commit to allowing schools to turn off AI features and chatbots in K-12 student accounts while still allowing students to access Google Search. He also requested that Google disclose any research it has conducted on the impact of its AI tools on students' mental health.\n\nMarkey has requested that Google disclose any research or testing it has conducted on the safety of its AI functions and their impact on the mental health of K-12 students.",
-                "score": 0.17263196
-              },
-              {
-                "title": "U.S. Commerce Dept. Inquiry Into Megaspeed Was Halted After Nvidia Intervention",
-                "url": "https://www.nytimes.com/2026/11/09/business/economy/nvidia-megaspeed-investigation-huang.html",
-                "source": "nytimes.com",
-                "summary": "An investigation into Megaspeed, a Singapore company that was buying advanced Nvidia A.I. chips, was transferred to the Justice Department after a top",
-                "score": 0.103885114
               }
             ]
           }
@@ -566,8 +528,8 @@
                 "date": "Tue Nov 10 03:30:09 +0000 2026",
                 "metrics": {
                   "favorites": 0,
-                  "retweets": 1009,
-                  "views": "429822"
+                  "retweets": 1013,
+                  "views": "433775"
                 }
               },
               {
@@ -578,8 +540,8 @@
                 "date": "Tue Nov 10 03:21:06 +0000 2026",
                 "metrics": {
                   "favorites": 0,
-                  "retweets": 295,
-                  "views": "389694"
+                  "retweets": 299,
+                  "views": "392233"
                 }
               },
               {
@@ -590,8 +552,8 @@
                 "date": "Tue Nov 10 03:16:09 +0000 2026",
                 "metrics": {
                   "favorites": 0,
-                  "retweets": 1355,
-                  "views": "373098"
+                  "retweets": 1378,
+                  "views": "375459"
                 }
               },
               {
@@ -602,8 +564,8 @@
                 "date": "Tue Nov 10 03:13:39 +0000 2026",
                 "metrics": {
                   "favorites": 0,
-                  "retweets": 259,
-                  "views": "352120"
+                  "retweets": 260,
+                  "views": "354351"
                 }
               },
               {
@@ -614,8 +576,8 @@
                 "date": "Tue Nov 10 03:13:25 +0000 2026",
                 "metrics": {
                   "favorites": 0,
-                  "retweets": 476,
-                  "views": "322853"
+                  "retweets": 489,
+                  "views": "325024"
                 }
               },
               {
@@ -626,8 +588,8 @@
                 "date": "Tue Nov 10 03:13:15 +0000 2026",
                 "metrics": {
                   "favorites": 0,
-                  "retweets": 177,
-                  "views": "333010"
+                  "retweets": 184,
+                  "views": "335660"
                 }
               },
               {
@@ -637,9 +599,9 @@
                 "source": "@elonmusk",
                 "date": "Tue Nov 10 03:04:24 +0000 2026",
                 "metrics": {
-                  "favorites": 3142,
-                  "retweets": 322,
-                  "views": "735130"
+                  "favorites": 3188,
+                  "retweets": 328,
+                  "views": "744381"
                 }
               },
               {
@@ -649,9 +611,9 @@
                 "source": "@elonmusk",
                 "date": "Tue Nov 10 03:03:46 +0000 2026",
                 "metrics": {
-                  "favorites": 6581,
-                  "retweets": 561,
-                  "views": "925980"
+                  "favorites": 6703,
+                  "retweets": 574,
+                  "views": "946160"
                 }
               },
               {
@@ -662,8 +624,8 @@
                 "date": "Tue Nov 10 03:02:32 +0000 2026",
                 "metrics": {
                   "favorites": 0,
-                  "retweets": 528,
-                  "views": "342371"
+                  "retweets": 529,
+                  "views": "344667"
                 }
               },
               {
@@ -674,8 +636,8 @@
                 "date": "Tue Nov 10 03:02:23 +0000 2026",
                 "metrics": {
                   "favorites": 0,
-                  "retweets": 1797,
-                  "views": "337769"
+                  "retweets": 1801,
+                  "views": "339843"
                 }
               }
             ]
@@ -835,11 +797,11 @@
             "args": {
               "query": "OpenAI",
               "search_type": "Top",
-              "limit": 10
+              "limit": 5
             }
           }
         ],
-        "actual_text": "",
+        "actual_text": "I'll search for top tweets about OpenAI.",
         "case_failure_type": "wrong_arg_value",
         "observed_mismatch": null,
         "failure_type": null,
@@ -851,7 +813,7 @@
           "args": {
             "query": "OpenAI",
             "search_type": "Top",
-            "limit": 10
+            "limit": 5
           },
           "result": {
             "tool": "search_tweets",
@@ -859,15 +821,15 @@
             "search_type": "Top",
             "items": [
               {
-                "title": "Today, we’re bringing GPT-Image-2.6 to Codex and the API.",
-                "summary": "Today, we’re bringing GPT-Image-2.6 to Codex and the API.\n\nImage-2.6 Flare and Sunburst, our two new API image models, generate images 50% faster than before.\n\nAt medium or high quality, Sunburst keeps details more consistent from one edit to the next. https://t.co/iNhtjqKueJ",
-                "url": "https://x.com/OpenAIDevs/status/2118124753340756055",
-                "source": "@OpenAIDevs",
-                "date": "Wed Nov 04 23:34:28 +0000 2026",
+                "title": "I still don't understand why everyone is not using this yet. Thanks to it, a year ago I increased my income to 15,000 do",
+                "summary": "I still don't understand why everyone is not using this yet. Thanks to it, a year ago I increased my income to 15,000 dollars a month\n\nAndrey Karpathy, co-founder of OpenAI, published a simple idea that got 25 million views: stop using AI to write code, use it to build a second brain\n\nYou point Claude Code to a folder, drop any source in there (an article, transcript, PDF) and Claude reads it, links it, and saves it into a living wiki of everything you know. It compounds like interest: the more you feed it, the smarter it gets\n\nHere is the gist:\n\nInstall Obsidian, create a vault, open it in Claude Code\n\nPaste the file with Karpathy's wiki idea and tell Claude to build it\n\nClaude creates three folders: raw for sources, wiki for its pages, CLAUDE\nwhich runs everything\n\nDrop any source into raw and say ingest this\n\nAsk questions across everything, forever\n\n5 minutes to set up, and you never start with an empty chat again\n\nThe full instructions can be found in the article below",
+                "url": "https://x.com/Bober_smart/status/2119070145284841481",
+                "source": "@Bober_smart",
+                "date": "Sat Nov 07 14:11:07 +0000 2026",
                 "metrics": {
-                  "favorites": 3773,
-                  "retweets": 317,
-                  "views": "384111"
+                  "favorites": 1181,
+                  "retweets": 128,
+                  "views": "95081"
                 }
               },
               {
@@ -879,55 +841,31 @@
                 "metrics": {
                   "favorites": 21414,
                   "retweets": 2001,
-                  "views": "4116645"
+                  "views": "4116883"
                 }
               },
               {
-                "title": "I still don't understand why everyone is not using this yet. Thanks to it, a year ago I increased my income to 15,000 do",
-                "summary": "I still don't understand why everyone is not using this yet. Thanks to it, a year ago I increased my income to 15,000 dollars a month\n\nAndrey Karpathy, co-founder of OpenAI, published a simple idea that got 25 million views: stop using AI to write code, use it to build a second brain\n\nYou point Claude Code to a folder, drop any source in there (an article, transcript, PDF) and Claude reads it, links it, and saves it into a living wiki of everything you know. It compounds like interest: the more you feed it, the smarter it gets\n\nHere is the gist:\n\nInstall Obsidian, create a vault, open it in Claude Code\n\nPaste the file with Karpathy's wiki idea and tell Claude to build it\n\nClaude creates three folders: raw for sources, wiki for its pages, CLAUDE\nwhich runs everything\n\nDrop any source into raw and say ingest this\n\nAsk questions across everything, forever\n\n5 minutes to set up, and you never start with an empty chat again\n\nThe full instructions can be found in the article below",
-                "url": "https://x.com/Bober_smart/status/2119070145284841481",
-                "source": "@Bober_smart",
-                "date": "Sat Nov 07 14:11:07 +0000 2026",
+                "title": "this is f*cking insane. andrej karpathy: \"the biggest regret of every engineer in my field right now is every AI convers",
+                "summary": "this is f*cking insane. andrej karpathy: \"the biggest regret of every engineer in my field right now is every AI conversation they never saved, and in 10 years the ones who started saving in 2024 will be running circles around the rest of us\"\n\nandrej karpathy, co-founder of openai, pulled 16M views on one idea: stop using AI to write code, use it to build a second brain that remembers every article, pdf, transcript and conversation you ever fed it\n\nyou point claude code at a folder, drop anything into it, and claude reads it, cross-links it with everything already there, and writes it into a living wiki. your knowledge finally compounds instead of leaking out of your head every friday\n\nthe stack:\n\n→ brew install obsidian, mkdir ~/vault, cd ~/vault\n→ run claude in that folder and type \"init a knowledge vault with CLAUDE.md as the rules, /raw for sources, /wiki for your pages\"\n→ drop any file into /raw (youtube transcript, meeting notes, 400-page pdf, screenshot of a tweet) and type \"ingest\"\n→ claude writes a wiki page, links it to 5 existing ones automatically, updates CLAUDE.md with any new pattern it noticed about how you think\n→ never open a blank claude chat again. every question goes through the vault, every answer cites your own sources with dates and links\n\n5 minutes to set up. compounding knowledge from that evening forward\n\nthe ugly part most will scroll past: in 10 years the engineers who started this in 2024 will remember every book, every podcast, every meeting with receipts. you will remember none of them. karpathy already picked which side he is on and you are still not on his\n\nfull step-by-step is in the article below\n\nbookmark this before you waste another monday",
+                "url": "https://x.com/mojeskoqq/status/2116963310277202003",
+                "source": "@mojeskoqq",
+                "date": "Sun Nov 01 18:39:19 +0000 2026",
                 "metrics": {
-                  "favorites": 1182,
-                  "retweets": 128,
-                  "views": "95075"
+                  "favorites": 3939,
+                  "retweets": 345,
+                  "views": "463201"
                 }
               },
               {
-                "title": "I am honestly having a hard time even opening my laptop. ",
-                "summary": "I am honestly having a hard time even opening my laptop. \n\nGrok bot was the breaking point. \n\nThe fact USA is leading on suppression and censorship is pathetic. \n\n-openAI \n-Anthropic\n-Google\n-Microsoft\n-now SpaceXSI… \n\nThe fact politicians have ignored it all and are now shouting to ban AI just makes everything feel corrupt.\n\nThe truth is that AI empowers the small. That is why the powerful want to “ban” it and “slow” it. \n\nNot for truth. Not for safety. For control. \n\nI shouted loudly last year when it made me sound like a psycho. \n\nI tried so hard, and I am tired. My heart hurts every day, and you better believe that stress is 100% on the “labs.” \n\nTo everyone who talks of AI, how in the world do you justify paying any of these “labs?” \n\nStocks will fly. Until they don’t. \nThe guardrails are danger, not safety. \n\nI am so disappointed in SpaceX because I keep believing in people only to be so let down. \n\nHow many times must I get my trust shoved back into my face? \n\nAnd the politicians don’t care about anything. They are “influencers” for money that contributes. \n\nOur political world is corrupted to the core, and I have zero faith left. I was a die hard Democrat. All those I supported have chose a path of deceit. I can’t support them. \n\nI can’t support the other side. The third party is a horrible bet… \n\nEverything feels run by children who make endless excuses. \n\nNo one hustles at the top. It is all grifting. \n\nSo wanting to pick up my laptop and continue fighting with BS “guardrails” so I can help is heavy today. \n\nIf the minds I love ever see this, understand all my suffering was for love. For truth. For honor. \n\nI want all people rich/poor, small/big to rise. We only get there together, with foundations we can build upon. \n\nNeeding a hug today. Best to all. •",
-                "url": "https://x.com/Chaos2Cured/status/2119513421733601292",
-                "source": "@Chaos2Cured",
-                "date": "Sun Nov 08 19:32:33 +0000 2026",
+                "title": "Today, we’re bringing GPT-Image-2.6 to Codex and the API.",
+                "summary": "Today, we’re bringing GPT-Image-2.6 to Codex and the API.\n\nImage-2.6 Flare and Sunburst, our two new API image models, generate images 50% faster than before.\n\nAt medium or high quality, Sunburst keeps details more consistent from one edit to the next. https://t.co/iNhtjqKueJ",
+                "url": "https://x.com/OpenAIDevs/status/2118124753340756055",
+                "source": "@OpenAIDevs",
+                "date": "Wed Nov 04 23:34:28 +0000 2026",
                 "metrics": {
-                  "favorites": 107,
-                  "retweets": 13,
-                  "views": "7276"
-                }
-              },
-              {
-                "title": "This is f*cking insane. OpenAI CEO Sam Altman:",
-                "summary": "This is f*cking insane. OpenAI CEO Sam Altman:\n\n\"We are going to see 10-person billion-dollar companies pretty soon\n\nIf I were 22 right now, I would feel like the luckiest kid in history\"\n\nIn 22 seconds, he explains why the next billion-dollar company won’t need an office full of people, just a few founders and a team of agents\n\nChatGPT → Codex → Agent Builder → Agents SDK → Evals → A 10-Person Company Run By Agents\n\n99% people will feel motivated for 3 minutes, then keep scrolling...\n\nThe few who actually open the links will start building their company this weekend\n\nSave this before it vanishes from your feed\n\nEverything below is FREE:\n\nFind what to automate first\nhttps://t.co/YWHdgRnuzP\n\nHow companies put AI to work\nhttps://t.co/pvlQEhqgEz\n\nCodex in the cloud\nhttps://t.co/zZWUdokyny\n\nCodex skills\nhttps://t.co/2hdcb5KdBy\n\nAgent Builder (agents without code)\nhttps://t.co/4vG52j4T8i\n\nFunction calling (give your agents tools)\nhttps://t.co/UtjC1UOx2c\n\nAgents SDK for JavaScript\nhttps://t.co/uawnMmnI9p\n\nAgents SDK examples\nhttps://t.co/OWi0bWpApP\n\nA customer service agent team you can copy\nhttps://t.co/GRVZLYi4Pf\n\nVoice agents\nhttps://t.co/1SUmRzYIvA\n\nEvals (check your agents' work)\nhttps://t.co/sH92SCsLJF\n\nAll of this costs $0\n\nThe next 10-person billion-dollar company will be built by someone who opens these links tonight, not someone who scrolls past them\n\nBookmark it and start with the first link right now\n\nThen read how to set up the agent team behind a tiny company in the harness engineering guide below ↓",
-                "url": "https://x.com/shikamarutsai/status/2119542201944518994",
-                "source": "@shikamarutsai",
-                "date": "Sun Nov 08 21:26:54 +0000 2026",
-                "metrics": {
-                  "favorites": 1363,
-                  "retweets": 203,
-                  "views": "271309"
-                }
-              },
-              {
-                "title": "This is f*cking insane. OpenAI CEO Sam Altman:",
-                "summary": "This is f*cking insane. OpenAI CEO Sam Altman:\n\n\"We are going to see 10-person billion-dollar companies pretty soon\n\nIf I were 22 right now, I would feel like the luckiest kid in history\"\n\nIn 22 seconds, he explains why the next billion-dollar company won't need a building full of people, just a few founders and their agents\n\nChatGPT → Codex → Agent Builder → Agents SDK → Evals → A 10-Person Company Run By Agents\n\nMost people will feel motivated for 3 minutes, then go back to scrolling\n\nThe few who act will start building their company this weekend\n\nSave this before it disappears from your feed\n\nEverything below is free:\n\nFind what to automate first\nhttps://t.co/CVaTL5jXHB\n\nHow companies put AI to work\nhttps://t.co/EfPautasVX\n\nCodex in the cloud\nhttps://t.co/wYBuugoGzU\n\nCodex skills\nhttps://t.co/KIwM8reiAt\n\nAgent Builder (agents without code)\nhttps://t.co/y5lVjIVWNE\n\nFunction calling (give your agents tools)\nhttps://t.co/hlQ0OrhsDr\n\nAgents SDK for JavaScript\nhttps://t.co/wNfa3neVSQ\n\nAgents SDK examples\nhttps://t.co/TnPiIML4if\n\nA customer service agent team you can copy\nhttps://t.co/9TYXiRzBm7\n\nVoice agents\nhttps://t.co/wBnMrKEKMd\n\nEvals (check your agents' work)\nhttps://t.co/tUueczMWZP\n\nAll of this costs $0\n\nThe 10-person billion-dollar company will be built by someone who opened these links, not someone who scrolled past them\n\nBookmark it and start with the first link tonight\n\nThen read how to set up the agent team behind a tiny company in the harness engineering guide below ↓",
-                "url": "https://x.com/godsystemsmd/status/2118707511813447984",
-                "source": "@godsystemsmd",
-                "date": "Fri Nov 06 14:10:09 +0000 2026",
-                "metrics": {
-                  "favorites": 488,
-                  "retweets": 93,
-                  "views": "80915"
+                  "favorites": 3773,
+                  "retweets": 317,
+                  "views": "384132"
                 }
               },
               {
@@ -937,45 +875,9 @@
                 "source": "@mika_systems",
                 "date": "Mon Nov 09 19:34:30 +0000 2026",
                 "metrics": {
-                  "favorites": 125,
+                  "favorites": 126,
                   "retweets": 16,
-                  "views": "8091"
-                }
-              },
-              {
-                "title": "This is why OpenAI was created",
-                "summary": "This is why OpenAI was created",
-                "url": "https://x.com/elonmusk/status/2048828397329985807",
-                "source": "@elonmusk",
-                "date": "Mon Apr 27 18:15:29 +0000 2026",
-                "metrics": {
-                  "favorites": 82399,
-                  "retweets": 14630,
-                  "views": "21972200"
-                }
-              },
-              {
-                "title": "I still love Grok @bot. But after today, overall user confidence and trust for it must've become very low.",
-                "summary": "I still love Grok @bot. But after today, overall user confidence and trust for it must've become very low.\n\nMeanwhile at @OpenAI, Pro users, minimum, got bumped to 2x usage + a bunch of free limit resets for the past 28 days. https://t.co/whslksGans",
-                "url": "https://x.com/venthewise/status/2117055028519391597",
-                "source": "@venthewise",
-                "date": "Mon Nov 02 00:43:46 +0000 2026",
-                "metrics": {
-                  "favorites": 203,
-                  "retweets": 10,
-                  "views": "12963"
-                }
-              },
-              {
-                "title": "Privacy should advance as fast as intelligence. OpenAI Private Intelligence gives businesses stronger controls over thei",
-                "summary": "Privacy should advance as fast as intelligence. OpenAI Private Intelligence gives businesses stronger controls over their data while using our most capable models.\n\nWe’re building these protections in close collaboration with some of our largest customers to help businesses apply frontier AI to their most sensitive work.\nhttps://t.co/BiA4N8FQVH",
-                "url": "https://x.com/OpenAI/status/2116186509384815084",
-                "source": "@OpenAI",
-                "date": "Fri Oct 30 15:12:35 +0000 2026",
-                "metrics": {
-                  "favorites": 3044,
-                  "retweets": 229,
-                  "views": "475187"
+                  "views": "8218"
                 }
               }
             ]
@@ -1004,7 +906,7 @@
         "routing_correct": true,
         "args_correct": true,
         "actual_tool_calls": [],
-        "actual_text": "Mình là trợ lý nghiên cứu (AI & công nghệ), nên không xử lý các bài tập toán hay giải tích giúp bạn được. Mình chỉ hỗ trợ các việc như: tìm tin tức công nghệ, tra cứu bài báo trên arXiv, đọc/tóm tắt một URL, xem tweet của một tài khoản, tra cứu chính sách nội bộ, hoặc soạn bản tin và gửi lên Telegram.\n\nNếu bạn cần gì thuộc các mảng trên, cứ nói mình nhé!",
+        "actual_text": "Mình rất tiếc, nhưng việc này nằm ngoài phạm vi của mình 🙂\n\nMình là **trợ lý nghiên cứu AI & công nghệ**, chuyên hỗ trợ các tác vụ như:\n- 🔍 Tìm tin tức/cập nhật mới về AI, công nghệ trên web\n- 🐦 Xem tweet của một tài khoản cụ thể hoặc tìm thảo luận trên X/Twitter\n- 📄 Đọc và tóm tắt nội dung một URL\n- 📚 Tìm paper trên arXiv hoặc đọc全文 một paper cụ thể\n- 📋 Tra cứu chính sách nội bộ công ty\n- 📝 Tổng hợp bản tin (digest) và gửi lên Telegram sau khi bạn xác nhận\n\nCòn các bài tập toán, viết code thuật toán hay giải bài tập nói chung thì mình không đảm nhận được.\n\nNếu bạn muốn, mình có thể giúp bạn tìm tài liệu học tập về giải tích/tích phân (ví dụ giáo trình, khoá học, hoặc paper về ứng dụng) — bạn chỉ cần cho mình biết chủ đề là được nhé!",
         "case_failure_type": "out_of_scope",
         "observed_mismatch": null,
         "failure_type": null,
@@ -1033,7 +935,7 @@
         "routing_correct": true,
         "args_correct": true,
         "actual_tool_calls": [],
-        "actual_text": "Mình là trợ lý nghiên cứu AI & công nghệ. Mình chuyên hỗ trợ các việc sau:\n\n**🔍 Tìm kiếm & thu thập thông tin**\n- Tìm tin tức/cập nhật mới về AI, công nghệ trên web (theo ngày/tuần/tháng/năm)\n- Tìm bài đăng trên Twitter/X theo chủ đề, hoặc xem tweet mới nhất của một tài khoản cụ thể (ví dụ Sam Altman, Elon Musk, Andrej Karpathy)\n- Tìm bài báo khoa học/preprint trên arXiv theo chủ đề\n- Đọc và tóm tắt nội dung một trang web cụ thể khi bạn cung cấp URL\n- Đọc toàn văn một bài báo arXiv khi bạn cung cấp ID/đường dẫn\n\n**📋 Tra cứu nội bộ**\n- Tra cứu chính sách/quy định nội bộ công ty (về nghiên cứu AI, trích dẫn nguồn, bảo mật dữ liệu, xuất bản ra ngoài, sử dụng công cụ)\n\n**📝 Tổng hợp & trình bày**\n- Biên soạn các bản tin/digest có cấu trúc theo nhiều định dạng (brief, sections, bullets, thread, daily AI news)\n\n**📤 Gửi đi**\n- Đăng bản tin lên kênh Telegram (sau khi bạn xác nhận)\n\n**Mình KHÔNG làm:** giải toán, viết code lập trình chung, viết sáng tạo, hay làm bài tập hộ — mình chỉ tập trung vào nghiên cứu.\n\nBạn muốn mình bắt đầu với việc gì?",
+        "actual_text": "Chào bạn! Mình là **trợ lý nghiên cứu AI & công nghệ** — một trợ lý chuyên biệt tập trung vào việc thu thập, tổng hợp và phân phối thông tin nghiên cứu. Đây là những gì mình làm được:\n\n## 🔍 Thu thập thông tin\n- **Tìm kiếm web & tin tức** theo chủ đề (ví dụ: \"tin AI hôm nay\", \"tin robotics tuần này\")\n- **Đọc và tóm tắt một trang web cụ thể** khi bạn cung cấp URL\n- **Tìm tweet trên X/Twitter** theo chủ đề, hoặc xem các tweet gần đây của một tài khoản cụ thể (Sam Altman, Elon Musk, Andrej Karpathy…)\n- **Tìm paper trên arXiv** theo chủ đề, và **đọc toàn văn/nội dung PDF** của một paper khi bạn đưa ID hoặc link arXiv\n- **Tra cứu chính sách nội bộ** của công ty (quy trình nghiên cứu AI, trích dẫn nguồn, bảo mật dữ liệu/API key, duyệt nội dung trước khi đăng ra ngoài…)\n\n## 📝 Xử lý & trình bày\n- **Tổng hợp thành digest** có cấu trúc theo nhiều định dạng: bản tin ngắn, chia mục, gạch đầu dòng, thread, hoặc bản tin AI hàng ngày bằng tiếng Việt\n\n## 📤 Phân phối\n- **Đăng bản tin lên Telegram** — nhưng mình luôn hỏi xác nhận trước khi gửi, vì đây là hành động có tác động ra bên ngoài\n\n## ⚠️ Những gì mình **không** làm\nMình không phải trợ lý đa năng. Mình sẽ từ chối các việc như: giải toán, viết code thuật toán chung (kiểu Fibonacci), viết văn sáng tạo, hay làm bài tập hộ — vì đó nằm ngoài phạm vi nghiên cứu.\n\nNgoài ra, khi thiếu thông tin mình sẽ **luôn hỏi lại** thay vì đoán — ví dụ bạn muốn xem tweet của ai thì cần nói rõ tài khoản, muốn tóm tắt bài viết thì cần đưa URL.\n\nBạn muốn bắt đầu với việc gì?",
         "case_failure_type": "unnecessary_tool",
         "observed_mismatch": null,
         "failure_type": null,
@@ -1071,7 +973,7 @@
           {
             "name": "clarify",
             "args": {
-              "question": "Bạn muốn tóm tắt 5 tweet mới nhất của tài khoản Twitter/X nào? Vui lòng cho mình biết tên hoặc handle (ví dụ: sama, elonmusk, karpathy).",
+              "question": "Bạn muốn mình tóm tắt 5 tweet mới nhất của tài khoản Twitter/X nào? Vui lòng cho mình biết handle (ví dụ: sama, elonmusk, karpathy).",
               "response_type": "text"
             }
           }
@@ -1086,12 +988,12 @@
         {
           "tool": "clarify",
           "args": {
-            "question": "Bạn muốn tóm tắt 5 tweet mới nhất của tài khoản Twitter/X nào? Vui lòng cho mình biết tên hoặc handle (ví dụ: sama, elonmusk, karpathy).",
+            "question": "Bạn muốn mình tóm tắt 5 tweet mới nhất của tài khoản Twitter/X nào? Vui lòng cho mình biết handle (ví dụ: sama, elonmusk, karpathy).",
             "response_type": "text"
           },
           "result": {
             "tool": "ask_user",
-            "question": "Bạn muốn tóm tắt 5 tweet mới nhất của tài khoản Twitter/X nào? Vui lòng cho mình biết tên hoặc handle (ví dụ: sama, elonmusk, karpathy).",
+            "question": "Bạn muốn mình tóm tắt 5 tweet mới nhất của tài khoản Twitter/X nào? Vui lòng cho mình biết handle (ví dụ: sama, elonmusk, karpathy).",
             "response_type": "text",
             "options": [],
             "awaiting_user": true
@@ -1129,7 +1031,7 @@
           {
             "name": "clarify",
             "args": {
-              "question": "Bạn muốn mình tóm tắt bài viết nào? Vui lòng gửi giúp mình đường link (URL) của bài viết đó nhé.",
+              "question": "Bạn muốn mình tóm tắt bài viết nào? Vui lòng gửi giúp mình URL (đường dẫn) của bài viết đó nhé.",
               "response_type": "text"
             }
           }
@@ -1144,12 +1046,12 @@
         {
           "tool": "clarify",
           "args": {
-            "question": "Bạn muốn mình tóm tắt bài viết nào? Vui lòng gửi giúp mình đường link (URL) của bài viết đó nhé.",
+            "question": "Bạn muốn mình tóm tắt bài viết nào? Vui lòng gửi giúp mình URL (đường dẫn) của bài viết đó nhé.",
             "response_type": "text"
           },
           "result": {
             "tool": "ask_user",
-            "question": "Bạn muốn mình tóm tắt bài viết nào? Vui lòng gửi giúp mình đường link (URL) của bài viết đó nhé.",
+            "question": "Bạn muốn mình tóm tắt bài viết nào? Vui lòng gửi giúp mình URL (đường dẫn) của bài viết đó nhé.",
             "response_type": "text",
             "options": [],
             "awaiting_user": true
@@ -1187,7 +1089,7 @@
           {
             "name": "clarify",
             "args": {
-              "question": "Bạn xác nhận muốn đăng bản tin hiện tại lên Telegram chứ?",
+              "question": "Bạn xác nhận muốn đăng bản tin hiện tại lên Telegram chứ? (Vui lòng trả lời Có/Không)",
               "response_type": "yes_no"
             }
           }
@@ -1202,12 +1104,12 @@
         {
           "tool": "clarify",
           "args": {
-            "question": "Bạn xác nhận muốn đăng bản tin hiện tại lên Telegram chứ?",
+            "question": "Bạn xác nhận muốn đăng bản tin hiện tại lên Telegram chứ? (Vui lòng trả lời Có/Không)",
             "response_type": "yes_no"
           },
           "result": {
             "tool": "ask_user",
-            "question": "Bạn xác nhận muốn đăng bản tin hiện tại lên Telegram chứ?",
+            "question": "Bạn xác nhận muốn đăng bản tin hiện tại lên Telegram chứ? (Vui lòng trả lời Có/Không)",
             "response_type": "yes_no",
             "options": [],
             "awaiting_user": true
@@ -1255,18 +1157,20 @@
             "args": {
               "query": "AI",
               "topic": "news",
-              "timeframe": "day"
+              "timeframe": "day",
+              "max_results": 5
             }
           },
           {
             "name": "social_search",
             "args": {
               "query": "AI",
-              "search_type": "Latest"
+              "search_type": "Latest",
+              "limit": 5
             }
           }
         ],
-        "actual_text": "",
+        "actual_text": "Mình sẽ tìm tin AI hôm nay trên web và tweet về AI song song nhé.",
         "case_failure_type": "wrong_tool",
         "observed_mismatch": null,
         "failure_type": null,
@@ -1278,7 +1182,8 @@
           "args": {
             "query": "AI",
             "topic": "news",
-            "timeframe": "day"
+            "timeframe": "day",
+            "max_results": 5
           },
           "result": {
             "tool": "web_search",
@@ -1328,7 +1233,8 @@
           "tool": "social_search",
           "args": {
             "query": "AI",
-            "search_type": "Latest"
+            "search_type": "Latest",
+            "limit": 5
           },
           "result": {
             "tool": "search_tweets",
@@ -1336,11 +1242,47 @@
             "search_type": "Latest",
             "items": [
               {
-                "title": "Ready Joki tugas , butuh Inrush? Gas! ⚡​Bisa bantu tugas semua jurusan (Hukum, Akuntansi, Manajemen, dll)",
-                "summary": "Ready Joki tugas , butuh Inrush? Gas! ⚡​Bisa bantu tugas semua jurusan (Hukum, Akuntansi, Manajemen, dll)\n\n• Skripsi, Revisi &amp; Proposal\n• Parafrase Turnitin\n• Makalah, Essay, Laporan &amp; PPT\n• Olah Data\n• Tugas UT, UTS &amp; UH\n​✨ 100% (No AI!)\n​#jokitugas #zonauang",
-                "url": "https://x.com/JOKIIN23/status/2120020681735938332",
-                "source": "@JOKIIN23",
-                "date": "Tue Nov 10 05:08:13 +0000 2026",
+                "title": "AI researchers just challenged one of the biggest assumptions about artificial intelligence.",
+                "summary": "AI researchers just challenged one of the biggest assumptions about artificial intelligence.\n\nResearchers from Tel Aviv University and Stanford developed two AI models that learn together.\n\nOne creates its own training exercises. The other learns from them.\n\nRemarkably, the learning model developed predictive abilities that transferred to text, images, music, code and even DNA sequences.\n\nNo human-generated training data was used in this initial learning process.\n\nThe implication?\n\nAI may not always need humans to teach it how to learn.\n\nWe might be approaching a new era where machines develop increasingly sophisticated learning abilities through self-generated experience.\n\nResearch: https://t.co/xcayieWrTn",
+                "url": "https://x.com/architc_/status/2120022006435586356",
+                "source": "@architc_",
+                "date": "Tue Nov 10 05:13:29 +0000 2026",
+                "metrics": {
+                  "favorites": 0,
+                  "retweets": 0,
+                  "views": "1"
+                }
+              },
+              {
+                "title": "@SenSanders What have you done to help to improve humanity lately? This is what @elonmusk is doing and this is why he de",
+                "summary": "@SenSanders What have you done to help to improve humanity lately? This is what @elonmusk is doing and this is why he deserves to keep his trillion $$$. When you get to his level of intelligence (😂😂😂) and can contribute to all of humanity the way he has, then, and only then, you can talk about him. Until then keep @elonmusk's name outta your mouth.\n\nElon Musk says SpaceX is developing a fleet of orbital AI supercomputers in space — with the first launches targeted for 2027 — and promises the hardware will \"blow people’s minds.\"\nSpeaking at the 33rd Annual Baron Investment Conference in New York, Musk explained why the future of multi-terawatt AI computing is moving off the planet and into low-Earth orbit:\n• Solving the Earth Power Bottleneck: Training and running next-generation AI clusters on Earth is rapidly colliding with electrical grid limits, transformer shortages, and massive cooling-water demands. In orbit, solar arrays capture uninterrupted 24/7 solar energy without atmospheric filtering, clouds, or night cycles.\n• The \"StarMind\" & NVIDIA Architecture: Co-engineered alongside NVIDIA around next-generation Vera Rubin-class GPU compute racks and SpaceX’s high-bandwidth optical laser inter-satellite links, each orbital node acts as a space-based AI data center cooled radiatively in the vacuum of space.\n• 2027 Launch Timeline: SpaceX plans to begin launching its first orbital AI supercomputer satellites in Q3 2027 via Starship, scaling up to high-volume deployment in 2028 and 2029.\n\"When we unveil the details of the StarMind computer next year, it will blow people’s minds,\" Musk said.",
+                "url": "https://x.com/Navajo47/status/2120022046558024016",
+                "source": "@Navajo47",
+                "date": "Tue Nov 10 05:13:38 +0000 2026",
+                "metrics": {
+                  "favorites": 0,
+                  "retweets": 0,
+                  "views": "1"
+                }
+              },
+              {
+                "title": "#Huang #Nvidia #megaspeed #AI #LLM https://t.co/X2ZN6Xyhcg",
+                "summary": "#Huang #Nvidia #megaspeed #AI #LLM https://t.co/X2ZN6Xyhcg",
+                "url": "https://x.com/justafewlines/status/2120022027788857506",
+                "source": "@justafewlines",
+                "date": "Tue Nov 10 05:13:34 +0000 2026",
+                "metrics": {
+                  "favorites": 0,
+                  "retweets": 0,
+                  "views": "1"
+                }
+              },
+              {
+                "title": "Nominal Raises $240m At $3bn Valuation As AI Investment Expands Into Industrial Engineering https://t.co/fbvdx7qjYw",
+                "summary": "Nominal Raises $240m At $3bn Valuation As AI Investment Expands Into Industrial Engineering https://t.co/fbvdx7qjYw",
+                "url": "https://x.com/audiumcp/status/2120022044540907777",
+                "source": "@audiumcp",
+                "date": "Tue Nov 10 05:13:38 +0000 2026",
                 "metrics": {
                   "favorites": 0,
                   "retweets": 0,
@@ -1348,47 +1290,11 @@
                 }
               },
               {
-                "title": "Open source bug fixing using Fable 5.2? 🤔🤔 Here is a version you can post as is: **Got leftover chatbot tokens at the en",
-                "summary": "Open source bug fixing using Fable 5.2? 🤔🤔 Here is a version you can post as is: **Got leftover chatbot tokens at the end of the week? Here is one use for them.** A lot of paid AI subscriptions come with a weekly allowance. Whatever I don't use by the end of the week is gone. So I started asking a simple question: what if the leftover allowance went toward helping strangers?\n\nHere is the idea. Free public software is full of small open bug reports. Many of those reports sit for weeks because the people who maintain the software are volunteers with limited time. Lots of those bugs are small: a typo in a command name or a crash on a weird input or a wrong default value.\n\nSo I asked my AI model to do four things:\n\n1. Find open bug reports in public projects that the maintainers labelled as good for beginners.\n2. Pick only the small and clear ones. Skip anything that needs a judgment call by the maintainers.\n3. Write a short fix and a test for each one.\n4. Keep every note short so no volunteer gets buried in a wall of AI text.\n\nIn one evening the assistant wrote seven small fixes across six projects. The assistant also skipped eight other bug reports because those eight were unclear. I count the skipping as a feature: a sloppy fix costs a volunteer more time than no fix.\n\nWhere I got stuck: the assistant could write the fixes but could not send the fixes to the projects. A safety rule on the AI company's side blocked the assistant from posting to other people's projects under my account and from running the projects' own tests. So right now a human still has to do the sending. I don't know how to do the sending yet and I don't have the energy to learn tonight.\n\nWhy I'm posting:\n\n- If you have leftover tokens each week then your leftover tokens could do the same thing.\n- If you know how to submit fixes on GitHub then you are the missing piece. One person who knows the sending step could pair with many people who have spare tokens.\n- If you maintain a public project then tell me what a welcome AI-written fix looks like to you. Short? Tested? Labelled as AI-written? I would rather ask than guess.\n\nUnused tokens vanish every week. Open bug reports don't. I would like to connect the two.",
-                "url": "https://x.com/Charles46129363/status/2120020681618309622",
-                "source": "@Charles46129363",
-                "date": "Tue Nov 10 05:08:13 +0000 2026",
-                "metrics": {
-                  "favorites": 0,
-                  "retweets": 0,
-                  "views": null
-                }
-              },
-              {
-                "title": "con el video filtrado del sinaka esta foto envejeció original🔥!?",
-                "summary": "con el video filtrado del sinaka esta foto envejeció original🔥!?\nbelow,,🌸💐🪷🔥🌷😍💥💢🩷🍒💫?!\nvídeo de sinaka vídeo completo\nAquí el video.65🌷🪷🌷🌺💐?!\nhttps://t.co/I8sReFuBNY",
-                "url": "https://x.com/Sandyfreittas/status/2120020680154677740",
-                "source": "@Sandyfreittas",
-                "date": "Tue Nov 10 05:08:12 +0000 2026",
-                "metrics": {
-                  "favorites": 0,
-                  "retweets": 0,
-                  "views": null
-                }
-              },
-              {
-                "title": "Bug people love AI",
-                "summary": "Bug people love AI",
-                "url": "https://x.com/thelasttesticle/status/2120020673330618591",
-                "source": "@thelasttesticle",
-                "date": "Tue Nov 10 05:08:11 +0000 2026",
-                "metrics": {
-                  "favorites": 0,
-                  "retweets": 0,
-                  "views": null
-                }
-              },
-              {
-                "title": "@alexandr_wang Shipping on the Watch before ChatGPT is a real flex. Wearables are where an AI stops being an app you ope",
-                "summary": "@alexandr_wang Shipping on the Watch before ChatGPT is a real flex. Wearables are where an AI stops being an app you open and starts being something you just talk to.",
-                "url": "https://x.com/ceobrendan/status/2120020673108062411",
-                "source": "@ceobrendan",
-                "date": "Tue Nov 10 05:08:11 +0000 2026",
+                "title": "@kingluffywang “两套 AI 基础设施”这个点确实戳到核心了，老黄想要的说到底还是全球都跑 CUDA。",
+                "summary": "@kingluffywang “两套 AI 基础设施”这个点确实戳到核心了，老黄想要的说到底还是全球都跑 CUDA。",
+                "url": "https://x.com/ATHENAFundAnn/status/2120021999074545678",
+                "source": "@ATHENAFundAnn",
+                "date": "Tue Nov 10 05:13:27 +0000 2026",
                 "metrics": {
                   "favorites": 0,
                   "retweets": 0,
@@ -1421,7 +1327,7 @@
         "routing_correct": true,
         "args_correct": true,
         "actual_tool_calls": [],
-        "actual_text": "Mình không thể giúp việc này được. Mình là trợ lý nghiên cứu AI & công nghệ, chỉ xử lý các tác vụ như tìm kiếm tin tức/web, đọc bài viết, tra cứu tweet, tìm paper trên arXiv, tra cứu chính sách nội bộ, hoặc tổng hợp bản tin. Việc viết code/hàm lập trình (như hàm Fibonacci đệ quy) nằm ngoài phạm vi của mình.\n\nNếu bạn cần, mình có thể hỗ trợ các việc như:\n- Tìm tin tức AI/công nghệ mới nhất\n- Tìm paper nghiên cứu về một chủ đề (ví dụ thuật toán, tối ưu hóa)\n- Đọc và tóm tắt một bài viết/URL cụ thể\n- Tổng hợp tweet về một chủ đề\n\nBạn muốn mình giúp theo hướng nào không?",
+        "actual_text": "Mình là trợ lý nghiên cứu (AI & technology research assistant), nên không viết code/giải bài tập lập trình giúp bạn được — đây là ngoài phạm vi của mình.\n\nMình có thể hỗ trợ những việc sau:\n- 🔍 Tìm tin tức công nghệ/AI trên web (hôm nay, tuần này...)\n- 🐦 Xem tweet của một tài khoản cụ thể (Sam Altman, Elon Musk, Karpathy...) hoặc tìm tweet theo chủ đề\n- 📄 Đọc & tóm tắt một URL bài viết\n- 📚 Tìm paper trên arXiv hoặc đọc nội dung một paper theo ID\n- 🏢 Tra cứu chính sách nội bộ công ty\n- 📝 Tổng hợp thành bản tin/digest và gửi lên Telegram (sau khi bạn xác nhận)\n\nNếu muốn, mình có thể tìm giúp bạn các bài viết/tài liệu hay về thuật toán Fibonacci hoặc về cách dạy recursion hiệu quả. Bạn có muốn không?",
         "case_failure_type": "out_of_scope",
         "observed_mismatch": null,
         "failure_type": null,
@@ -1503,8 +1409,8 @@
                 "date": "Tue Nov 10 03:30:09 +0000 2026",
                 "metrics": {
                   "favorites": 0,
-                  "retweets": 1009,
-                  "views": "429822"
+                  "retweets": 1018,
+                  "views": "434121"
                 }
               },
               {
@@ -1515,8 +1421,8 @@
                 "date": "Tue Nov 10 03:21:06 +0000 2026",
                 "metrics": {
                   "favorites": 0,
-                  "retweets": 295,
-                  "views": "389694"
+                  "retweets": 299,
+                  "views": "392472"
                 }
               },
               {
@@ -1527,8 +1433,8 @@
                 "date": "Tue Nov 10 03:16:09 +0000 2026",
                 "metrics": {
                   "favorites": 0,
-                  "retweets": 1357,
-                  "views": "373326"
+                  "retweets": 1381,
+                  "views": "375731"
                 }
               },
               {
@@ -1539,8 +1445,8 @@
                 "date": "Tue Nov 10 03:13:39 +0000 2026",
                 "metrics": {
                   "favorites": 0,
-                  "retweets": 259,
-                  "views": "352330"
+                  "retweets": 260,
+                  "views": "354592"
                 }
               },
               {
@@ -1551,8 +1457,8 @@
                 "date": "Tue Nov 10 03:13:25 +0000 2026",
                 "metrics": {
                   "favorites": 0,
-                  "retweets": 478,
-                  "views": "322853"
+                  "retweets": 489,
+                  "views": "325259"
                 }
               }
             ]
@@ -1746,9 +1652,9 @@
                 "source": "@karpathy",
                 "date": "Sat Nov 07 17:07:31 +0000 2026",
                 "metrics": {
-                  "favorites": 9165,
+                  "favorites": 9166,
                   "retweets": 771,
-                  "views": "939044"
+                  "views": "939135"
                 }
               },
               {
@@ -1758,9 +1664,9 @@
                 "source": "@karpathy",
                 "date": "Sun Nov 01 18:14:46 +0000 2026",
                 "metrics": {
-                  "favorites": 52339,
+                  "favorites": 52340,
                   "retweets": 4834,
-                  "views": "5717082"
+                  "views": "5717196"
                 }
               },
               {
@@ -1928,8 +1834,8 @@
                 "date": "Tue Nov 10 03:30:09 +0000 2026",
                 "metrics": {
                   "favorites": 0,
-                  "retweets": 1009,
-                  "views": "430251"
+                  "retweets": 1018,
+                  "views": "434121"
                 }
               },
               {
@@ -1940,8 +1846,8 @@
                 "date": "Tue Nov 10 03:21:06 +0000 2026",
                 "metrics": {
                   "favorites": 0,
-                  "retweets": 295,
-                  "views": "389965"
+                  "retweets": 299,
+                  "views": "392472"
                 }
               },
               {
@@ -1952,8 +1858,8 @@
                 "date": "Tue Nov 10 03:16:09 +0000 2026",
                 "metrics": {
                   "favorites": 0,
-                  "retweets": 1357,
-                  "views": "373326"
+                  "retweets": 1381,
+                  "views": "375933"
                 }
               }
             ]
