@@ -3,6 +3,7 @@ from providers.openrouter_provider import OpenRouterProvider
 from providers.anthropic_provider import AnthropicProvider
 from providers.gemini_provider import GeminiProvider
 from providers.ollama_provider import OllamaProvider
+from providers.deepseek_provider import DeepSeekProvider
 
 
 def make_provider(name: str):
@@ -10,6 +11,8 @@ def make_provider(name: str):
         return OpenAIProvider()
     if name == "openrouter":
         return OpenRouterProvider()
+    if name == "deepseek":
+        return DeepSeekProvider()
     if name == "anthropic":
         return AnthropicProvider()
     if name == "gemini":
