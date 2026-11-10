@@ -1,1 +1,2 @@
 version,author,changed_artifact,artifact_version,prompt_hash,tools_hash,reason,hypothesis,metric_before,metric_after,run_file
+v0,NguyenVanNhi,baseline,v0+peb1c8179815b+t5b22a2476d41,eb1c8179815b,5b22a2476d41,baseline,Đo hành vi baseline của starter_v0 với DeepSeek trước khi tối ưu prompt và tool declarations,,0.45,runs/v0_B_base_deepseek_20261110T120310243527.json
