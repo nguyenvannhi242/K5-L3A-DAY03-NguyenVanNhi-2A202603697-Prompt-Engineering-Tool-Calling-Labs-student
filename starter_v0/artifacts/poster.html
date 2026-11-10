@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Day 03 Lab v2 — Research Agent Poster</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --border: #334155;
+      --accent: #38bdf8;
+      --accent2: #a855f7;
+      --success: #22c55e;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at top right, #1e1b4b, var(--bg));
+      color: var(--text);
+      padding: 28px;
+      line-height: 1.5;
+    }
+    .poster {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      gap: 20px;
+    }
+    header {
+      background: linear-gradient(135deg, rgba(56,189,248,0.15), rgba(168,85,247,0.15));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    h1 { font-size: 1.9rem; color: var(--accent); }
+    .subtitle { color: var(--muted); font-size: 0.98rem; margin-top: 4px; }
+    .badges { display: flex; gap: 12px; flex-wrap: wrap; }
+    .badge {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+    .badge.green { border-color: var(--success); color: #86efac; }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 20px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px 24px;
+    }
+    h2 {
+      font-size: 1.2rem;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    th { color: var(--muted); font-weight: 600; }
+    code {
+      background: rgba(15,23,42,0.7);
+      color: #7dd3fc;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: Consolas, monospace;
+    }
+    .tag-new {
+      background: rgba(168,85,247,0.25);
+      color: #e9d5ff;
+      border: 1px solid var(--accent2);
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .samples li {
+      margin-bottom: 10px;
+      padding: 10px 12px;
+      background: rgba(15,23,42,0.55);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      list-style: none;
+      font-size: 0.9rem;
+    }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .metric-box {
+      background: rgba(15,23,42,0.65);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px;
+      text-align: center;
+    }
+    .metric-val { font-size: 1.4rem; font-weight: 700; color: var(--success); }
+    .metric-lbl { font-size: 0.78rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="poster">
+    <header>
+      <div>
+        <h1>🔬 AI &amp; Technology Research Agent (v3)</h1>
+        <div class="subtitle">K5-L3A-DAY03 — Nguyễn Văn Nhì (2A202603697) &nbsp;|&nbsp; Provider: <code>deepseek</code> &nbsp;|&nbsp; Model: <code>deepseek-flash</code> (DeepSeek-V4.1-Flash)</div>
+      </div>
+      <div class="badges">
+        <span class="badge green">Base Eval: 20/20 (100%)</span>
+        <span class="badge green">Team Group Eval: 10/10 (100%)</span>
+        <span class="badge green">Extension Eval: 10/10 (100%)</span>
+        <span class="badge green">Pytest: 111 Passed / 0 Skipped</span>
+      </div>
+    </header>
+
+    <div class="card">
+      <h2>🎯 A1. Agent này làm được gì?</h2>
+      <p>Trợ lý nghiên cứu công nghệ đa nguồn dựa trên bằng chứng (evidence-driven): tự động định tuyến và tra cứu tin tức thời sự (Tavily), thảo luận mạng xã hội X/Twitter &amp; Hacker News, kho mã nguồn mở GitHub, bài báo khoa học arXiv, sổ tay quy định nội bộ công ty, kiểm định cấp độ tin cậy của nguồn tin (Tier 1/2/3), tổng hợp thành bản tin Markdown và lưu file hoặc đăng lên Telegram sau khi người dùng xác nhận.</p>
+      <div class="metrics">
+        <div class="metric-box"><div class="metric-val">0.55 → 1.00</div><div class="metric-lbl">Case Accuracy (v0 → v3)</div></div>
+        <div class="metric-box"><div class="metric-val">100%</div><div class="metric-lbl">Tool Routing Accuracy</div></div>
+        <div class="metric-box"><div class="metric-val">100%</div><div class="metric-lbl">Argument &amp; Multi-turn</div></div>
+        <div class="metric-box"><div class="metric-val">14 Tools</div><div class="metric-lbl">10 Built-in + 4 Custom</div></div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h2>🧰 A2. Danh sách 14 Công cụ (Tools)</h2>
+        <table>
+          <thead>
+            <tr><th>Tool</th><th>Chức năng chính</th><th>Loại</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>clarify</code></td><td>Hỏi lại khi thiếu handle/URL hoặc xin xác nhận <code>yes_no</code> trước khi gửi/lưu</td><td>Core</td></tr>
+            <tr><td><code>timeline</code></td><td>Lấy tweet gần đây của một tài khoản cụ thể (<code>sama</code>, <code>elonmusk</code>, <code>karpathy</code>)</td><td>Core</td></tr>
+            <tr><td><code>social_search</code></td><td>Tìm kiếm bài đăng X/Twitter theo từ khóa (<code>Latest</code> / <code>Top</code>)</td><td>Core</td></tr>
+            <tr><td><code>lookup</code></td><td>Tìm kiếm web &amp; tin tức thời sự qua Tavily (<code>topic=news|general</code>)</td><td>Core</td></tr>
+            <tr><td><code>fetch</code></td><td>Đọc và trích xuất Markdown từ một URL cụ thể qua Firecrawl</td><td>Core</td></tr>
+            <tr><td><code>format</code></td><td>Định dạng danh sách item thành bản tin Markdown theo template</td><td>Core</td></tr>
+            <tr><td><code>send</code></td><td>Đăng bản tin lên kênh Telegram (Guardrail: <code>confirmed=true</code>)</td><td>Bonus</td></tr>
+            <tr><td><code>policy</code></td><td>Tra cứu quy định nội bộ công ty &amp; tách biệt <code>untrusted_text</code></td><td>Bonus</td></tr>
+            <tr><td><code>papers</code></td><td>Tìm kiếm bài báo khoa học trên arXiv theo chủ đề</td><td>Bonus</td></tr>
+            <tr><td><code>paper_text</code></td><td>Tải PDF arXiv và trích xuất văn bản cục bộ</td><td>Bonus</td></tr>
+            <tr><td><code>github_search</code></td><td>Tìm kiếm repositories mã nguồn mở trên GitHub theo <code>stars</code>/<code>updated</code>/<code>forks</code></td><td><span class="tag-new">Mới #1</span></td></tr>
+            <tr><td><code>hn_search</code></td><td>Tìm kiếm thảo luận kỹ thuật trên Hacker News (<code>popularity</code> / <code>date</code>)</td><td><span class="tag-new">Mới #2</span></td></tr>
+            <tr><td><code>source_credibility</code></td><td>Phân loại cấp độ tin cậy nguồn tin (<code>Tier 1/2/3</code>) theo Citation Policy</td><td><span class="tag-new">Mới #3</span></td></tr>
+            <tr><td><code>save_report</code></td><td>Lưu báo cáo Markdown ra file cục bộ (Guardrail: <code>confirmed=true</code>)</td><td><span class="tag-new">Mới #4</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h2>💬 A3. Câu hỏi mẫu để thử ngay</h2>
+        <ul class="samples">
+          <li><strong>1. Tin tức thời sự + Digest:</strong><br/>"Tin tức AI hôm nay có gì nổi bật?"</li>
+          <li><strong>2. Tìm repo GitHub (Tool mới):</strong><br/>"Tìm giúp mình 5 repo GitHub nhiều sao nhất về MCP"</li>
+          <li><strong>3. Thảo luận Hacker News (Tool mới):</strong><br/>"Cộng đồng Hacker News mới nhất đang thảo luận gì về DeepSeek?"</li>
+          <li><strong>4. Kiểm định độ tin cậy nguồn (Tool mới):</strong><br/>"Đánh giá độ tin cậy (Tier mấy theo policy) của nguồn này: https://x.com/sama/status/123456"</li>
+          <li><strong>5. Hỏi lại &amp; Xác nhận gửi Telegram:</strong><br/>"Tóm tắt 3 tweet mới nhất giúp mình" → "Của Sam Altman nhé" → "Đăng bản tin vừa rồi lên Telegram giúp mình"</li>
+        </ul>
+        <h2 style="margin-top: 18px;">🚀 Khởi chạy Demo UI</h2>
+        <p style="font-size: 0.88rem; color: var(--muted);">
+          Local Streamlit UI: <code>streamlit run app.py</code> (cổng <code>8501</code>)<br/>
+          Public Tunnel: <code>cloudflared tunnel --url http://localhost:8501</code>
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
