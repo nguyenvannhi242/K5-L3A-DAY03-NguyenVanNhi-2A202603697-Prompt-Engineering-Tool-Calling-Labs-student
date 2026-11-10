@@ -227,3 +227,95 @@ tools:
           default: 8000
           description: "Maximum number of characters to return."
       required: [arxiv_url]
+
+  # ---------------- Custom team tools (4 new tools) ----------------
+  - name: github_search
+    description: >-
+      Search open-source GitHub repositories by keyword or topic.
+      WHEN TO USE: When the user explicitly asks to find GitHub repositories, open-source projects, or GitHub stars/codebases for a topic (e.g., "Tìm repo GitHub về AI agent").
+      WHEN NOT TO USE: Do NOT use for general web news (use `lookup`), Twitter posts (use `social_search`), or writing code directly.
+    parameters:
+      type: object
+      properties:
+        query:
+          type: string
+          default: ""
+          description: "Core repository keyword or topic (e.g., 'AI agent', 'vllm', 'mcp')."
+        sort:
+          type: string
+          enum: [stars, updated, forks]
+          default: "stars"
+          description: "Sort repositories by 'stars' (default), 'updated', or 'forks'."
+        max_results:
+          type: integer
+          default: 5
+          description: "Maximum number of repositories to return."
+      required: [query]
+
+  - name: hn_search
+    description: >-
+      Search Hacker News (Y Combinator) stories and developer discussions.
+      WHEN TO USE: When the user explicitly asks what people on Hacker News (HN) are discussing about a topic.
+      WHEN NOT TO USE: Do NOT use for Twitter/X discussions (use `social_search`) or general web news (use `lookup`).
+    parameters:
+      type: object
+      properties:
+        query:
+          type: string
+          default: ""
+          description: "Core keyword or topic to search on Hacker News."
+        sort_by:
+          type: string
+          enum: [popularity, date]
+          default: "popularity"
+          description: "Sort by 'popularity' (top points, default) or 'date' (newest stories)."
+        limit:
+          type: integer
+          default: 5
+          description: "Number of Hacker News stories to return."
+      required: [query]
+
+  - name: source_credibility
+    description: >-
+      Evaluate the credibility tier (Tier 1, Tier 2, or Tier 3) of a given URL or source type based on the Company Source Citation Policy.
+      WHEN TO USE: When the user provides a URL or source and asks to evaluate/classify its credibility tier (Tier 1/2/3) or whether it requires corroboration.
+      WHEN NOT TO USE: Do NOT use when the user asks a general question about company policy text without a specific URL to classify (use `policy`), and do NOT use to read the full content of the URL (use `fetch`).
+    parameters:
+      type: object
+      properties:
+        url:
+          type: string
+          default: ""
+          description: "The URL to evaluate (e.g., 'https://x.com/sama/status/123', 'https://openai.com/blog/gpt-5')."
+        source_type:
+          type: string
+          enum: [auto, official_blog, paper, news, social, forum]
+          default: "auto"
+          description: "Optional source category override ('auto' detects from domain)."
+      required: [url]
+
+  - name: save_report
+    description: >-
+      Save a markdown research report or digest to a local `.md` file in `saved_reports/`.
+      WHEN TO USE: ONLY when the user explicitly asks to save a report to a local markdown file AND has explicitly confirmed saving (`confirmed=true`).
+      WHEN NOT TO USE: Do NOT use for sending to Telegram (use `send`), and do NOT call with `confirmed=true` if the user has not confirmed yet (call `clarify(response_type="yes_no")` first).
+    parameters:
+      type: object
+      properties:
+        title:
+          type: string
+          default: ""
+          description: "Report title."
+        content:
+          type: string
+          default: ""
+          description: "Markdown content of the report."
+        filename:
+          type: string
+          default: "research_report.md"
+          description: "Target markdown filename (e.g., 'ai_digest.md')."
+        confirmed:
+          type: boolean
+          default: false
+          description: "Must be true ONLY after the user explicitly confirms saving to disk."
+      required: [content]
