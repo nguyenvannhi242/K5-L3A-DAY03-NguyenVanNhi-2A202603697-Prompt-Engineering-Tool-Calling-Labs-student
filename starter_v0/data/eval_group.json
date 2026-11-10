@@ -1,5 +1,5 @@
 {
-  "dataset_id": "day04_v2_research_group",
+  "dataset_id": "day03_v2_research_group",
   "dataset_role": "group",
   "description": "Case do NHÓM tự viết thêm (5 single-turn + 5 multi-turn) để kiểm tra routing vào 4 tool mới (github_search, hn_search, source_credibility, save_report), guardrail xác nhận, và các tình huống dễ nhầm lẫn.",
   "allowed_failure_types": ["wrong_tool", "wrong_arg_value", "wrong_boundary", "unnecessary_tool", "out_of_scope", "missing_info"],
